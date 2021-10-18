@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block content %}
 
@@ -9,5 +10,109 @@
 <button class="btn btn--tab">MUSIC</button>
 
 <h2>Things I've built</h2>
+
+
+<section class="bg-1">
+  <div class="preview-card">
+    <video class="site-demo" autoplay loop>
+      <source src="{% static 'video/toyl-demo.mp4' %}" type="video/mp4">
+    </video>
+  
+    <h3>Time of Your Life</h3>
+    <p>An introspective 90-year life calendar. Time of Your Life takes a user's date of birth and translates it into a grid of 4,680 boxes, each representing a week in a 90-year life.</p>
+    <p>The user's current week of life is highlighted in their calendar, with weeks already passed greyed out.</p>
+    <p>Life events can also be added – these are important landmarks/milestones such as a graduation or the birth of a loved one, and they will be displayed on the user's life calendar.</p>
+    <p>Time of Your Life supports user authentication and has over 100 active user accounts.</p>
+    <p>Built with Django and some light Javascript. Styled with vanilla CSS.</p>
+    <button>See live</button>
+    <button>Source code</button>
+  </div>
+  
+  <div class="preview-card">
+    <video class="site-demo" autoplay loop>
+      <source src="{% static 'video/na-demo.mp4' %}" type="video/mp4">
+    </video>
+  
+    <h3>Note Adder</h3>
+    <p>A tool for music learners and teachers. Note Adder helps the user to easily build intuitions about how musical note values interact by representing them in a visual way.</p>
+    <p>Having taught music lessons to students of all ages and abilities over several years, I noticed that many beginners often struggle to really understand and internalise musical note values. Through trial and error I developed an effective visual method to help my students understand what's really going on, and then turned it into an interactive web app.</p>
+    <p>I also included a 'Learn' section which explains the fundamentals of rhythmic musical notation from the ground up in an interactive way.</p>
+    <p>Built with Django and Javascript. Styled with vanilla CSS.</p>
+    <button>See live</button>
+    <button>Source code</button>
+  </div>
+</section>
+
+<section class="bg2">
+  <h2>My toolkit</h2>
+  <div class="container">
+    <div>
+      <img class="logo" src="{% static 'svg/logo-python.svg' %}" alt="Python">
+      <p>Python</p>
+    </div>
+    <div>
+      <img class="logo" src="{% static 'svg/logo-django.svg' %}" alt="Django">
+      <p>Django</p>
+    </div>
+    <div>
+      <img class="logo" src="{% static 'svg/logo-javascript.svg' %}" alt="Javascript">
+      <p>Javascript</p>
+    </div>
+    <div>
+      <img class="logo" src="{% static 'svg/logo-docker.svg' %}" alt="Docker">
+      <p>Docker</p>
+    </div>
+  </div>
+
+  <div class="container">
+    <div>
+      <img class="logo" src="{% static 'svg/logo-postgresql.svg' %}" alt="SQL">
+      <p>SQL</p>
+    </div>
+    <div>
+      <img class="logo" src="{% static 'svg/logo-github.svg' %}" alt="GitHub">
+      <p>GitHub</p>
+    </div>
+    <div>
+      <img class="logo" src="{% static 'svg/logo-html.svg' %}" alt="HTML">
+      <p>HTML</p>
+    </div>
+    <div>
+      <img class="logo" src="{% static 'svg/logo-css.svg' %}" alt="CSS">
+      <p>CSS</p>
+    </div>
+  </div>
+</section>
+
+<section class="bg1">
+  <h2>About me</h2>
+  <p>Hi, I’m Juan – I’m a musician and self-taught programmer.</p>
+  <p> graduated from BIMM London in 2017 with a music degree and since then I’ve spent most of my time teaching drums, guitar and music production to students of all ages and abilities.</p>
+  <p>Having been interested in tech for a long time, I decided to start learning Python during one of the UK lockdowns. I instantly became hooked on the problem solving and engineering challenges it presented.</p>
+  <p>I continued to read books to improve my understanding of Python primarily, then proceeded to shift my focus to broader web techonologies so that I’d be able to build working applications. The projects showcased above are the product of the tools and methodologies I’ve learned, combined with ideas of things I wanted to create to fulfil a purpose.</p>
+  <p>Going forward I want to develop my skills in more advanced and lower-level fields such as cryptography, machine learning, data science and AI.</p>
+  <p>Outside of music and programming, I’m enthusiastic about fitness and reading/learning just about anything.</p>
+</section>
+
+<footer class="bg2">
+  <div class="container">
+    <img class="icon" src="{% static 'svg/logo-twitter.svg' %}" alt="twitter">
+    <img class="icon" src="{% static 'svg/logo-github.svg' %}" alt="GitHub">
+    <img class="icon" src="{% static 'svg/logo-isntagram.svg' %}" alt="isntagram">
+  </div>
+  <div class="container">
+    <img class="icon" src="{% static 'svg/telephone.svg' %}" alt="phone">
+    <p>07477 875992</p>
+  </div>
+  <div class="container">
+    <img class="icon" src="{% static 'svg/envelope-open.svg' %}" alt="email">
+    <p>juancoquet@gmail.com</p>
+  </div>
+</footer>
+  
+
+
+
+
 
 {% endblock content %}
