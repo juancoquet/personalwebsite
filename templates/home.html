@@ -3,84 +3,137 @@
 
 {% block content %}
 
-<h1>JUAN COQUET</h1>
-<p>I write code and play music</p>
-
-<button class="btn btn--tab">CODE</button>
-<button class="btn btn--tab">MUSIC</button>
-
-<h2>Things I've built</h2>
-
-
-<section class="bg-1">
-  <div class="preview-card">
-    <video class="site-demo" autoplay loop>
-      <source src="{% static 'video/toyl-demo.mp4' %}" type="video/mp4">
-    </video>
-  
-    <h3>Time of Your Life</h3>
-    <p>An introspective 90-year life calendar. Time of Your Life takes a user's date of birth and translates it into a grid of 4,680 boxes, each representing a week in a 90-year life.</p>
-    <p>The user's current week of life is highlighted in their calendar, with weeks already passed greyed out.</p>
-    <p>Life events can also be added – these are important landmarks/milestones such as a graduation or the birth of a loved one, and they will be displayed on the user's life calendar.</p>
-    <p>Time of Your Life supports user authentication and has over 100 active user accounts.</p>
-    <p>Built with Django and some light Javascript. Styled with vanilla CSS.</p>
-    <button>See live</button>
-    <button>Source code</button>
-  </div>
-  
-  <div class="preview-card">
-    <video class="site-demo" autoplay loop>
-      <source src="{% static 'video/na-demo.mp4' %}" type="video/mp4">
-    </video>
-  
-    <h3>Note Adder</h3>
-    <p>A tool for music learners and teachers. Note Adder helps the user to easily build intuitions about how musical note values interact by representing them in a visual way.</p>
-    <p>Having taught music lessons to students of all ages and abilities over several years, I noticed that many beginners often struggle to really understand and internalise musical note values. Through trial and error I developed an effective visual method to help my students understand what's really going on, and then turned it into an interactive web app.</p>
-    <p>I also included a 'Learn' section which explains the fundamentals of rhythmic musical notation from the ground up in an interactive way.</p>
-    <p>Built with Django and Javascript. Styled with vanilla CSS.</p>
-    <button>See live</button>
-    <button>Source code</button>
+<section class="hero">
+  <img class="hero-photo" src="{% static '/img/hero-1.jpg' %}" alt="Juan Coquet">
+  <div class="overlay"></div>
+  <div class="overlay--fade"></div>
+  <div class="hero__text">
+    <h2>JUAN COQUET</h2>
+    <p>I write code and play music</p>
   </div>
 </section>
 
-<section class="bg2">
-  <h2>My toolkit</h2>
-  <div class="container">
-    <div>
-      <img class="logo" src="{% static 'svg/logo-python.svg' %}" alt="Python">
-      <p>Python</p>
+<section class="tabs-container">
+  <button id="code-tab" class="btn btn--tab--left">CODE</button>
+  <button id="music-tab" class="btn btn--tab--right">MUSIC</button>
+</section>
+
+<section class="bg-1">
+  <div class="code-tab">
+    <h2>Things I've built</h2>
+
+    <div class="preview-card">
+      <video class="site-demo" autoplay loop>
+        <source src="{% static 'video/toyl-demo.mp4' %}" type="video/mp4">
+      </video>
+      <div class="card__content">
+        <h3>Time of Your Life</h3>
+        <div class="card__content__text">
+          <p>An introspective 90-year life calendar. Time of Your Life takes a user's date of birth and translates it into a grid of 4,680 boxes, each representing a week in a 90-year life.</p>
+          <p>The user's current week of life is highlighted in their calendar, with weeks already passed greyed out.</p>
+          <p>Life events can also be added – these are important landmarks/milestones such as a graduation or the birth of a loved one, and they will be displayed on the user's life calendar.</p>
+          <p>Time of Your Life supports user authentication and has over 100 active user accounts.</p>
+          <p class="card__content__text__last">Built with Django and some light Javascript. Styled with vanilla CSS.</p>
+        </div>
+      </div>
+      <div class="card__buttons">
+        <button class="btn card__btn--left">See live</button>
+        <button class="btn card__btn--right">Source code</button>
+      </div>
     </div>
-    <div>
-      <img class="logo" src="{% static 'svg/logo-django.svg' %}" alt="Django">
-      <p>Django</p>
-    </div>
-    <div>
-      <img class="logo" src="{% static 'svg/logo-javascript.svg' %}" alt="Javascript">
-      <p>Javascript</p>
-    </div>
-    <div>
-      <img class="logo" src="{% static 'svg/logo-docker.svg' %}" alt="Docker">
-      <p>Docker</p>
+
+    <div class="preview-card">
+      <video class="site-demo" autoplay loop>
+        <source src="{% static 'video/na-demo.mp4' %}" type="video/mp4">
+      </video>
+      <div class="card__content">
+        <h3>Note Adder</h3>
+        <div class="card__content__text">
+          <p>A tool for music learners and teachers. Note Adder helps the user to easily build intuitions about how musical note values interact by representing them in a visual way.</p>
+          <p>Having taught music lessons to students of all ages and abilities over several years, I noticed that many beginners often struggle to really understand and internalise musical note values. Through trial and error I developed an effective visual method to help my students understand what's really going on, and then turned it into an interactive web app that brings together visual and auditory aspects.</p>
+          <p>I also included a 'Learn' section which explains the fundamentals of rhythmic musical notation from the ground up in an interactive way.</p>
+          <p class="card__content__text__last">Built with Django and vanilla Javascript. Styled with vanilla CSS.</p>
+        </div>
+      </div>
+      <div class="card__buttons">
+        <button class="btn card__btn--left">See live</button>
+        <button class="btn card__btn--right">Source code</button>
+      </div>
     </div>
   </div>
 
-  <div class="container">
-    <div>
-      <img class="logo" src="{% static 'svg/logo-postgresql.svg' %}" alt="SQL">
-      <p>SQL</p>
+
+  <div class="music-tab hidden">
+    <h2>Watch me play</h2>
+    <div class="preview-card">
+      <video class="music-clip" controls>
+        <source src="{% static 'video/one-foot.mp4' %}" type="video/mp4">
+      </video>
+      <h3>One Foot, live with Airways</h3>
     </div>
-    <div>
-      <img class="logo" src="{% static 'svg/logo-github.svg' %}" alt="GitHub">
-      <p>GitHub</p>
+    <div class="preview-card">
+      <video class="music-clip" controls>
+        <source src="{% static 'video/ltyf.mp4' %}" type="video/mp4">
+      </video>
+      <h3>Listen to Your Friends, live with Airways</h3>
     </div>
-    <div>
-      <img class="logo" src="{% static 'svg/logo-html.svg' %}" alt="HTML">
-      <p>HTML</p>
+    <div class="preview-card">
+      <video class="music-clip" controls>
+        <source src="{% static 'video/reckless-tongue.mp4' %}" type="video/mp4">
+      </video>
+      <h3>Reckless Tongue, live with Airways</h3>
     </div>
-    <div>
-      <img class="logo" src="{% static 'svg/logo-css.svg' %}" alt="CSS">
-      <p>CSS</p>
+  </div>
+
+</section>
+
+<section class="bg2">
+  <div class="code-tab">
+    <h2>My toolkit</h2>
+    <div class="container">
+      <div>
+        <img class="logo" src="{% static 'svg/logo-python.svg' %}" alt="Python">
+        <p>Python</p>
+      </div>
+      <div>
+        <img class="logo" src="{% static 'svg/logo-django.svg' %}" alt="Django">
+        <p>Django</p>
+      </div>
+      <div>
+        <img class="logo" src="{% static 'svg/logo-javascript.svg' %}" alt="Javascript">
+        <p>Javascript</p>
+      </div>
+      <div>
+        <img class="logo" src="{% static 'svg/logo-docker.svg' %}" alt="Docker">
+        <p>Docker</p>
+      </div>
     </div>
+    <div class="container">
+      <div>
+        <img class="logo" src="{% static 'svg/logo-postgresql.svg' %}" alt="SQL">
+        <p>SQL</p>
+      </div>
+      <div>
+        <img class="logo" src="{% static 'svg/logo-github.svg' %}" alt="GitHub">
+        <p>GitHub</p>
+      </div>
+      <div>
+        <img class="logo" src="{% static 'svg/logo-html.svg' %}" alt="HTML">
+        <p>HTML</p>
+      </div>
+      <div>
+        <img class="logo" src="{% static 'svg/logo-css.svg' %}" alt="CSS">
+        <p>CSS</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="music-tab hidden">
+    <h2>About me</h2>
+    <p>Hi, I’m Juan – I’m a musician and self-taught programmer.</p>
+    <p>I began playing drums in 2008 at the age of 12 and since then I’ve been continuously involved in different musical projects primarily within pop & rock settings, playing shows all over the UK.</p>
+    <p>I graduated with a music degree from BIMM London in 2017 and since then I’ve invested most of my practice time into learning and improving at playing the guitar.</p>
+    <p>After finishing my degree I began providing private drum lessons to students of all ages and abilities, and eventually began teaching guitar and music production as I developed my skills through the years.</p>
   </div>
 </section>
 
@@ -110,9 +163,4 @@
   </div>
 </footer>
   
-
-
-
-
-
 {% endblock content %}
