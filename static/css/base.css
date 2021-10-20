@@ -8,6 +8,7 @@
     --col-navy: #1C354A;
     --col-navy-dark: #162A3B;
     --col--accent-purple: #8765AF;
+    --col-shadow-blue: rgba(6, 11, 15, 0.5);
 
     --col-yel: #FFC870;
     --col-yel-dark: #FCB84C;
@@ -25,6 +26,7 @@
     --col-bg1: var(--col-navy);
     --col-bg2: var(--col-navy-dark);
     --col-accent: var(--col--accent-purple);
+    --col-shadow: var(--col-shadow-blue);
 }
 
 .music-theme {
@@ -46,7 +48,7 @@ html {
 }
 
 body {
-    background-color: var(--col-bg1);
+    background-color: var(--col-cream);
     transition: 500ms ease-in-out;
 }
 
@@ -77,18 +79,37 @@ span {
     font-size: 1.6rem;
     font-family: 'Nunito', sans-serif;
     color: var(--col-cream);
-    margin-bottom: 1.6rem;
 }
 
-section:not(.hero):not(.tabs-container) {
-    display: flex;
-    flex-direction: column;
-    padding: 0 var(--side-padding);
+p {
+    margin-bottom: 1.6rem;
 }
 
 button {
     font-size: 1.6rem;
     font-family: 'Nunito', sans-serif;
+    cursor: pointer;
+}
+
+.section--bg1 {
+    display: flex;
+    flex-direction: column;
+    padding: 1.6rem var(--side-padding);
+    background-color: var(--col-bg1);
+}
+
+.section--bg2 {
+    display: flex;
+    flex-direction: column;
+    padding: 1.6rem var(--side-padding);
+    background-color: var(--col-bg2);
+    border-top: 1px solid var(--col-accent);
+    border-bottom: 1px solid var(--col-accent);
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
 }
 
 
@@ -99,12 +120,31 @@ button {
     #NAV BAR
 \*---------------------------*/
 
+header {
+    position: sticky;
+    top: 0;
+    z-index: 999;
+}
+
 nav {
-    background-color: var(--col-cream);
+    background-color: rgba(255, 252, 247, 0.93);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.6rem var(--side-padding) 0.4rem;
 }
 
 #signature {
-    height: 48px;
+    height: 4.8rem;
+}
+
+.nav__contact {
+    font-family: 'Playfair Display', serif;
+    color: var(--col-navy-dark);
+    border: 1px solid var(--col-navy-dark);
+    border-radius: 2px;
+    padding: 0.3rem 0.6rem;
+    margin-bottom: 1.1rem;
 }
 
 
@@ -122,6 +162,9 @@ nav {
 
 .hero-photo {
     width: 100%;
+    max-height: 80vh;
+    display: block;
+    object-fit: cover;
 }
 
 .hero__text {
@@ -149,6 +192,15 @@ nav {
     opacity: 0.1;
 }
 
+.overlay--fade {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background: linear-gradient(0, var(--col-navy), transparent 30%);
+}
+
 
 
 
@@ -157,10 +209,10 @@ nav {
 \*---------------------------*/
 
 .tabs-container {
-    padding: 0 var(--side-padding);
+    padding: 1.6rem var(--side-padding) 0 var(--side-padding);
     display: flex;
     justify-content: center;
-    margin: 1.6rem auto;
+    background-color: var(--col-bg1);
 }
 
 .btn {
@@ -194,6 +246,7 @@ nav {
     border-radius: 2px;
     margin: 3.2rem 0;
     max-width: 36rem;
+    box-shadow: 0 0 12px rgba(6, 11, 15, 0.5);
 }
 
 .card__content {
@@ -246,17 +299,59 @@ nav {
 
 
 
-
 /*---------------------------*\
-    #LOGOS
+    #TOOLKIT
 \*---------------------------*/
+
+.tech-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 
 .logo {
     height: 32px;
+    margin-bottom: 0.8rem;
+}
+
+
+
+
+
+/*---------------------------*\
+    #FOOTER
+\*---------------------------*/
+
+footer {
+    background-color: var(--col-bg2);
+    border-top: 1px solid var(--col-accent);
+    padding: 1.6rem 0 0.8rem 0;
+}
+
+.container--center {
+    justify-content: center;
+    align-items: center;
 }
 
 .icon {
-    height: 16px;
+    height: 1.6rem;
+    margin: 0 0.8rem;
+}
+
+.icon--btn {
+    height: 1.2rem;
+}
+
+.footer__line {
+    margin-bottom: 0.8rem;
+}
+
+.icon-style {
+    fill: var(--col-accent);
+}
+
+.alt-icon-style {
+    fill: var(--col-cream);
 }
 
 
