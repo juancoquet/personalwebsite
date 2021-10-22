@@ -4,7 +4,7 @@
 {% block content %}
 
 <section class="hero">
-  <img class="hero-photo" src="{% static '/img/hero-1.jpg' %}" alt="Juan Coquet">
+  <img class="hero-photo" src="{% static '/img/hero-3.jpg' %}" alt="Juan Coquet">
   <div class="overlay"></div>
   <div class="overlay--fade"></div>
   <div class="hero__text">
@@ -13,102 +13,135 @@
   </div>
 </section>
 
-<section class="tabs-container">
-  <button id="code-tab" class="btn btn--tab--left tab--selected">CODE</button>
-  <button id="music-tab" class="btn btn--tab--right">MUSIC</button>
+<section class="section--bg1">
+  <div class="tabs-container content-width">
+    <button id="code-tab" class="btn btn--tab--left tab--selected">CODE</button>
+    <button id="music-tab" class="btn btn--tab--right">MUSIC</button>
+  </div>
 </section>
 
 <section class="section--bg1">
-  <div class="code-tab">
+  <div class="code-tab content-width">
     <h2>Things I've built</h2>
 
-    <div class="preview-card">
-      <video class="site-demo" autoplay loop>
-        <source src="{% static 'video/toyl-demo.mp4' %}" type="video/mp4">
-      </video>
-      <div class="card__content">
-        <h3>Time of Your Life</h3>
-        <div class="card__content__text">
-          <p>An introspective 90-year life calendar. Time of Your Life takes a user's date of birth and translates it into a grid of 4,680 boxes, each representing a week in a 90-year life.</p>
-          <p>The user's current week of life is highlighted in their calendar, with weeks already passed greyed out.</p>
-          <p>Life events can also be added – these are important landmarks/milestones such as a graduation or the birth of a loved one, and they are displayed on the user's life calendar.</p>
-          <p>This project was built using Test Driven Development from the first line of code to the last.</p>
-          <p>Time of Your Life supports user authentication and has over 100 active user accounts.</p>
-          <p class="card__content__text__last">Built with Django and some light Javascript inside a Docker container. Styled with vanilla CSS.</p>
+    <div class="card-container">
+      <div class="preview-card top">
+        <video class="site-demo" autoplay loop muted playsinline>
+          <source src="{% static 'video/toyl-demo2-c.mp4' %}" type="video/mp4">
+        </video>
+        <div class="card__content">
+          <h3>Time of Your Life</h3>
+          <div class="card__content__text">
+            <p>An introspective 90-year life calendar. Time of Your Life takes a user's date of birth and translates it into a grid of 4,680 boxes, each representing a week in a 90-year life.</p>
+            <p>The user's current week of life is highlighted in their calendar, with weeks already passed greyed out.</p>
+            <p>Life events can also be added – these are important landmarks/milestones such as a graduation or the birth of a loved one, and they are displayed on the user's life calendar.</p>
+            <p>This project was built using Test Driven Development from the first line of code to the last.</p>
+            <p>Time of Your Life supports user authentication and has over 100 active user accounts.</p>
+            <p class="card__content__text__last">Built with Django and some light Javascript inside a Docker container. Styled with vanilla CSS.</p>
+          </div>
         </div>
-      </div>
-      <div class="card__buttons">
-          <a class="btn--a-wrap" href="https://www.timeofyourlife.io/" target="_blank">
-            <button class="btn card__btn--left">
+        <div class="card__buttons">
+            <a class="btn--a-wrap" href="https://www.timeofyourlife.io/" target="_blank">
+              <button class="btn card__btn--left">
+                <div class="container container--center">
+                  View live
+                  <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" fill="currentColor" class="icon icon--btn bi bi-box-arrow-up-right" viewBox="0 0 18 18">
+                    <path fill-rule="evenodd" d="M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5z"/>
+                    <path fill-rule="evenodd" d="M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5.5a.5.5 0 0 0 1 0v-5z"/>
+                  </svg>
+                </div>
+              </button>
+            </a>
+          <a class="btn--a-wrap" href="https://github.com/juancoquet/time-of-your-life" target="_blank">
+            <button class="btn card__btn--right">
               <div class="container container--center">
-                View live
-                <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" fill="currentColor" class="icon icon--btn bi bi-box-arrow-up-right" viewBox="0 0 18 18">
-                  <path fill-rule="evenodd" d="M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5z"/>
-                  <path fill-rule="evenodd" d="M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5.5a.5.5 0 0 0 1 0v-5z"/>
+                Source code
+                <svg class="icon icon--btn" viewBox="0 0 33 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <g clip-path="url(#clip0_12:45)">
+                    <path d="M16.3838 0C7.33642 0 0 7.33514 0 16.3838C0 23.6227 4.69444 29.764 11.2043 31.9304C12.023 32.082 12.3237 31.575 12.3237 31.1422C12.3237 30.7516 12.3084 29.4608 12.3015 28.0918C7.74337 29.0829 6.78158 26.1588 6.78158 26.1588C6.03631 24.265 4.96248 23.7616 4.96248 23.7616C3.47605 22.7447 5.07453 22.7655 5.07453 22.7655C6.71978 22.8811 7.58609 24.4539 7.58609 24.4539C9.04734 26.9586 11.4188 26.2344 12.3538 25.8159C12.5008 24.7569 12.9254 24.0342 13.3939 23.6251C9.75496 23.2107 5.9294 21.8059 5.9294 15.5281C5.9294 13.7395 6.56944 12.2778 7.61757 11.1305C7.44745 10.7178 6.88669 9.05145 7.77626 6.79469C7.77626 6.79469 9.15206 6.35434 12.283 8.47412C13.5898 8.11099 14.9914 7.92904 16.3838 7.92288C17.7761 7.92904 19.1788 8.11099 20.4882 8.47412C23.6153 6.35434 24.9892 6.79469 24.9892 6.79469C25.881 9.05145 25.32 10.7178 25.1498 11.1305C26.2003 12.2778 26.8359 13.7393 26.8359 15.5281C26.8359 21.8208 23.0032 23.2065 19.355 23.612C19.9426 24.1204 20.4662 25.1176 20.4662 26.646C20.4662 28.8381 20.4472 30.6025 20.4472 31.1422C20.4472 31.5782 20.7421 32.0891 21.5727 31.9282C28.0789 29.7593 32.7674 23.6202 32.7674 16.3838C32.7674 7.33514 25.432 0 16.3838 0Z" fill="var(--col-cream)"/>
+                    <path d="M6.13626 23.3391C6.10028 23.4204 5.97205 23.4448 5.8555 23.3891C5.73665 23.3356 5.66983 23.2246 5.70838 23.1429C5.74371 23.0591 5.87195 23.0357 5.99055 23.092C6.10966 23.1453 6.17751 23.2574 6.13626 23.3391ZM6.94218 24.0581C6.86405 24.1306 6.71127 24.0969 6.60758 23.9824C6.50041 23.8682 6.48037 23.7156 6.55965 23.6419C6.64022 23.5696 6.78837 23.6034 6.89579 23.7177C7.00295 23.8333 7.02377 23.985 6.94205 24.0583L6.94218 24.0581ZM7.49509 24.9782C7.3946 25.0479 7.23039 24.9825 7.12901 24.8368C7.02865 24.6912 7.02865 24.5165 7.13119 24.4464C7.23296 24.3764 7.3946 24.4394 7.4974 24.5839C7.59762 24.7321 7.59762 24.9068 7.49496 24.9783L7.49509 24.9782ZM8.43001 26.0438C8.34019 26.1427 8.14899 26.1162 8.00893 25.9811C7.86579 25.849 7.82583 25.6615 7.9159 25.5624C8.00675 25.4632 8.1991 25.4911 8.34019 25.6251C8.48243 25.757 8.52586 25.9459 8.43014 26.0438H8.43001ZM9.63836 26.4036C9.59892 26.5318 9.41465 26.5901 9.22911 26.5356C9.04382 26.4795 8.92252 26.3292 8.95992 26.1995C8.99846 26.0704 9.1835 26.0096 9.37045 26.0679C9.55549 26.1238 9.67704 26.273 9.63849 26.4036H9.63836ZM11.0138 26.5561C11.0184 26.6913 10.861 26.8033 10.6662 26.8057C10.4702 26.81 10.3118 26.7006 10.3097 26.5678C10.3097 26.4313 10.4636 26.3203 10.6594 26.3171C10.8542 26.3132 11.0138 26.4218 11.0138 26.5561ZM12.3647 26.5043C12.3881 26.6361 12.2527 26.7716 12.0593 26.8075C11.8691 26.8422 11.6931 26.7609 11.6688 26.6302C11.6452 26.495 11.7832 26.3597 11.973 26.3247C12.1667 26.291 12.3401 26.3703 12.3647 26.5043Z" fill="#8765AF"/>
+                  </g>
                 </svg>
               </div>
             </button>
           </a>
-        <a class="btn--a-wrap" href="https://github.com/juancoquet/time-of-your-life" target="_blank">
-          <button class="btn card__btn--right">
-            <div class="container container--center">
-              Source code
-              <svg class="icon icon--btn" viewBox="0 0 33 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <g clip-path="url(#clip0_12:45)">
-                  <path d="M16.3838 0C7.33642 0 0 7.33514 0 16.3838C0 23.6227 4.69444 29.764 11.2043 31.9304C12.023 32.082 12.3237 31.575 12.3237 31.1422C12.3237 30.7516 12.3084 29.4608 12.3015 28.0918C7.74337 29.0829 6.78158 26.1588 6.78158 26.1588C6.03631 24.265 4.96248 23.7616 4.96248 23.7616C3.47605 22.7447 5.07453 22.7655 5.07453 22.7655C6.71978 22.8811 7.58609 24.4539 7.58609 24.4539C9.04734 26.9586 11.4188 26.2344 12.3538 25.8159C12.5008 24.7569 12.9254 24.0342 13.3939 23.6251C9.75496 23.2107 5.9294 21.8059 5.9294 15.5281C5.9294 13.7395 6.56944 12.2778 7.61757 11.1305C7.44745 10.7178 6.88669 9.05145 7.77626 6.79469C7.77626 6.79469 9.15206 6.35434 12.283 8.47412C13.5898 8.11099 14.9914 7.92904 16.3838 7.92288C17.7761 7.92904 19.1788 8.11099 20.4882 8.47412C23.6153 6.35434 24.9892 6.79469 24.9892 6.79469C25.881 9.05145 25.32 10.7178 25.1498 11.1305C26.2003 12.2778 26.8359 13.7393 26.8359 15.5281C26.8359 21.8208 23.0032 23.2065 19.355 23.612C19.9426 24.1204 20.4662 25.1176 20.4662 26.646C20.4662 28.8381 20.4472 30.6025 20.4472 31.1422C20.4472 31.5782 20.7421 32.0891 21.5727 31.9282C28.0789 29.7593 32.7674 23.6202 32.7674 16.3838C32.7674 7.33514 25.432 0 16.3838 0Z" fill="var(--col-cream)"/>
-                  <path d="M6.13626 23.3391C6.10028 23.4204 5.97205 23.4448 5.8555 23.3891C5.73665 23.3356 5.66983 23.2246 5.70838 23.1429C5.74371 23.0591 5.87195 23.0357 5.99055 23.092C6.10966 23.1453 6.17751 23.2574 6.13626 23.3391ZM6.94218 24.0581C6.86405 24.1306 6.71127 24.0969 6.60758 23.9824C6.50041 23.8682 6.48037 23.7156 6.55965 23.6419C6.64022 23.5696 6.78837 23.6034 6.89579 23.7177C7.00295 23.8333 7.02377 23.985 6.94205 24.0583L6.94218 24.0581ZM7.49509 24.9782C7.3946 25.0479 7.23039 24.9825 7.12901 24.8368C7.02865 24.6912 7.02865 24.5165 7.13119 24.4464C7.23296 24.3764 7.3946 24.4394 7.4974 24.5839C7.59762 24.7321 7.59762 24.9068 7.49496 24.9783L7.49509 24.9782ZM8.43001 26.0438C8.34019 26.1427 8.14899 26.1162 8.00893 25.9811C7.86579 25.849 7.82583 25.6615 7.9159 25.5624C8.00675 25.4632 8.1991 25.4911 8.34019 25.6251C8.48243 25.757 8.52586 25.9459 8.43014 26.0438H8.43001ZM9.63836 26.4036C9.59892 26.5318 9.41465 26.5901 9.22911 26.5356C9.04382 26.4795 8.92252 26.3292 8.95992 26.1995C8.99846 26.0704 9.1835 26.0096 9.37045 26.0679C9.55549 26.1238 9.67704 26.273 9.63849 26.4036H9.63836ZM11.0138 26.5561C11.0184 26.6913 10.861 26.8033 10.6662 26.8057C10.4702 26.81 10.3118 26.7006 10.3097 26.5678C10.3097 26.4313 10.4636 26.3203 10.6594 26.3171C10.8542 26.3132 11.0138 26.4218 11.0138 26.5561ZM12.3647 26.5043C12.3881 26.6361 12.2527 26.7716 12.0593 26.8075C11.8691 26.8422 11.6931 26.7609 11.6688 26.6302C11.6452 26.495 11.7832 26.3597 11.973 26.3247C12.1667 26.291 12.3401 26.3703 12.3647 26.5043Z" fill="#8765AF"/>
-                </g>
-              </svg>
-            </div>
-          </button>
-        </a>
-      </div>
-    </div>
-
-    <div class="preview-card">
-      <video class="site-demo" autoplay loop>
-        <source src="{% static 'video/na-demo.mp4' %}" type="video/mp4">
-      </video>
-      <div class="card__content">
-        <h3>Note Adder</h3>
-        <div class="card__content__text">
-          <p>A tool for music learners and teachers. Note Adder helps the user to easily build intuitions about how musical note values interact by representing them in a visual way.</p>
-          <p>Having taught music lessons to students of all ages and abilities over several years, I noticed that many beginners often struggle to really understand and internalise musical note values. Through trial and error I developed an effective visual method to help my students understand what's really going on, and then turned it into an interactive web app that brings together visual and auditory aspects.</p>
-          <p>I also included a 'Learn' section which explains the fundamentals of rhythmic musical notation from the ground up in an interactive way.</p>
-          <p class="card__content__text__last">Built with Django and vanilla Javascript inside a Docker container. Styled with vanilla CSS.</p>
         </div>
       </div>
-      <div class="card__buttons">
-        <a class="btn--a-wrap" href="https://www.noteadder.com/" target="_blank">
-          <button class="btn card__btn--left">
+      <div class="preview-card">
+        <video class="site-demo" autoplay loop muted playsinline>
+          <source src="{% static 'video/na-demo2-c.mp4' %}" type="video/mp4">
+        </video>
+        <div class="card__content">
+          <h3>Note Adder</h3>
+          <div class="card__content__text">
+            <p>A tool for music learners and teachers. Note Adder helps the user to easily build intuitions about how musical note values interact by representing them in a visual way.</p>
+            <p>Having taught music lessons to students of all ages and abilities over several years, I noticed that many beginners often struggle to really understand and internalise musical note values. Through trial and error I developed an effective visual method to help my students understand what's really going on, and then turned it into an interactive web app that brings together visual and auditory aspects.</p>
+            <p>I also included a 'Learn' section which explains the fundamentals of rhythmic musical notation from the ground up in an interactive way.</p>
+            <p class="card__content__text__last">Built with Django and vanilla Javascript inside a Docker container. Styled with vanilla CSS.</p>
+          </div>
+        </div>
+        <div class="card__buttons">
+          <a class="btn--a-wrap" href="https://www.noteadder.com/" target="_blank">
+            <button class="btn card__btn--left">
+                <div class="container container--center">
+                  View live
+                  <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" fill="currentColor" class="icon icon--btn bi bi-box-arrow-up-right" viewBox="0 0 18 18">
+                    <path fill-rule="evenodd" d="M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5z"/>
+                    <path fill-rule="evenodd" d="M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5.5a.5.5 0 0 0 1 0v-5z"/>
+                  </svg>
+                </div>
+            </button>
+          </a>
+          <a class="btn--a-wrap" href="https://github.com/juancoquet/noteadder" target="_blank">
+            <button class="btn card__btn--right">
               <div class="container container--center">
-                View live
-                <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" fill="currentColor" class="icon icon--btn bi bi-box-arrow-up-right" viewBox="0 0 18 18">
-                  <path fill-rule="evenodd" d="M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5z"/>
-                  <path fill-rule="evenodd" d="M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5.5a.5.5 0 0 0 1 0v-5z"/>
+                Source code
+                <svg class="icon icon--btn" viewBox="0 0 33 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <g clip-path="url(#clip0_12:45)">
+                    <path d="M16.3838 0C7.33642 0 0 7.33514 0 16.3838C0 23.6227 4.69444 29.764 11.2043 31.9304C12.023 32.082 12.3237 31.575 12.3237 31.1422C12.3237 30.7516 12.3084 29.4608 12.3015 28.0918C7.74337 29.0829 6.78158 26.1588 6.78158 26.1588C6.03631 24.265 4.96248 23.7616 4.96248 23.7616C3.47605 22.7447 5.07453 22.7655 5.07453 22.7655C6.71978 22.8811 7.58609 24.4539 7.58609 24.4539C9.04734 26.9586 11.4188 26.2344 12.3538 25.8159C12.5008 24.7569 12.9254 24.0342 13.3939 23.6251C9.75496 23.2107 5.9294 21.8059 5.9294 15.5281C5.9294 13.7395 6.56944 12.2778 7.61757 11.1305C7.44745 10.7178 6.88669 9.05145 7.77626 6.79469C7.77626 6.79469 9.15206 6.35434 12.283 8.47412C13.5898 8.11099 14.9914 7.92904 16.3838 7.92288C17.7761 7.92904 19.1788 8.11099 20.4882 8.47412C23.6153 6.35434 24.9892 6.79469 24.9892 6.79469C25.881 9.05145 25.32 10.7178 25.1498 11.1305C26.2003 12.2778 26.8359 13.7393 26.8359 15.5281C26.8359 21.8208 23.0032 23.2065 19.355 23.612C19.9426 24.1204 20.4662 25.1176 20.4662 26.646C20.4662 28.8381 20.4472 30.6025 20.4472 31.1422C20.4472 31.5782 20.7421 32.0891 21.5727 31.9282C28.0789 29.7593 32.7674 23.6202 32.7674 16.3838C32.7674 7.33514 25.432 0 16.3838 0Z" fill="var(--col-cream)"/>
+                    <path d="M6.13626 23.3391C6.10028 23.4204 5.97205 23.4448 5.8555 23.3891C5.73665 23.3356 5.66983 23.2246 5.70838 23.1429C5.74371 23.0591 5.87195 23.0357 5.99055 23.092C6.10966 23.1453 6.17751 23.2574 6.13626 23.3391ZM6.94218 24.0581C6.86405 24.1306 6.71127 24.0969 6.60758 23.9824C6.50041 23.8682 6.48037 23.7156 6.55965 23.6419C6.64022 23.5696 6.78837 23.6034 6.89579 23.7177C7.00295 23.8333 7.02377 23.985 6.94205 24.0583L6.94218 24.0581ZM7.49509 24.9782C7.3946 25.0479 7.23039 24.9825 7.12901 24.8368C7.02865 24.6912 7.02865 24.5165 7.13119 24.4464C7.23296 24.3764 7.3946 24.4394 7.4974 24.5839C7.59762 24.7321 7.59762 24.9068 7.49496 24.9783L7.49509 24.9782ZM8.43001 26.0438C8.34019 26.1427 8.14899 26.1162 8.00893 25.9811C7.86579 25.849 7.82583 25.6615 7.9159 25.5624C8.00675 25.4632 8.1991 25.4911 8.34019 25.6251C8.48243 25.757 8.52586 25.9459 8.43014 26.0438H8.43001ZM9.63836 26.4036C9.59892 26.5318 9.41465 26.5901 9.22911 26.5356C9.04382 26.4795 8.92252 26.3292 8.95992 26.1995C8.99846 26.0704 9.1835 26.0096 9.37045 26.0679C9.55549 26.1238 9.67704 26.273 9.63849 26.4036H9.63836ZM11.0138 26.5561C11.0184 26.6913 10.861 26.8033 10.6662 26.8057C10.4702 26.81 10.3118 26.7006 10.3097 26.5678C10.3097 26.4313 10.4636 26.3203 10.6594 26.3171C10.8542 26.3132 11.0138 26.4218 11.0138 26.5561ZM12.3647 26.5043C12.3881 26.6361 12.2527 26.7716 12.0593 26.8075C11.8691 26.8422 11.6931 26.7609 11.6688 26.6302C11.6452 26.495 11.7832 26.3597 11.973 26.3247C12.1667 26.291 12.3401 26.3703 12.3647 26.5043Z" fill="#8765AF"/>
+                  </g>
                 </svg>
               </div>
-          </button>
-        </a>
-        <a class="btn--a-wrap" href="https://github.com/juancoquet/noteadder" target="_blank">
-          <button class="btn card__btn--right">
-            <div class="container container--center">
-              Source code
-              <svg class="icon icon--btn" viewBox="0 0 33 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <g clip-path="url(#clip0_12:45)">
-                  <path d="M16.3838 0C7.33642 0 0 7.33514 0 16.3838C0 23.6227 4.69444 29.764 11.2043 31.9304C12.023 32.082 12.3237 31.575 12.3237 31.1422C12.3237 30.7516 12.3084 29.4608 12.3015 28.0918C7.74337 29.0829 6.78158 26.1588 6.78158 26.1588C6.03631 24.265 4.96248 23.7616 4.96248 23.7616C3.47605 22.7447 5.07453 22.7655 5.07453 22.7655C6.71978 22.8811 7.58609 24.4539 7.58609 24.4539C9.04734 26.9586 11.4188 26.2344 12.3538 25.8159C12.5008 24.7569 12.9254 24.0342 13.3939 23.6251C9.75496 23.2107 5.9294 21.8059 5.9294 15.5281C5.9294 13.7395 6.56944 12.2778 7.61757 11.1305C7.44745 10.7178 6.88669 9.05145 7.77626 6.79469C7.77626 6.79469 9.15206 6.35434 12.283 8.47412C13.5898 8.11099 14.9914 7.92904 16.3838 7.92288C17.7761 7.92904 19.1788 8.11099 20.4882 8.47412C23.6153 6.35434 24.9892 6.79469 24.9892 6.79469C25.881 9.05145 25.32 10.7178 25.1498 11.1305C26.2003 12.2778 26.8359 13.7393 26.8359 15.5281C26.8359 21.8208 23.0032 23.2065 19.355 23.612C19.9426 24.1204 20.4662 25.1176 20.4662 26.646C20.4662 28.8381 20.4472 30.6025 20.4472 31.1422C20.4472 31.5782 20.7421 32.0891 21.5727 31.9282C28.0789 29.7593 32.7674 23.6202 32.7674 16.3838C32.7674 7.33514 25.432 0 16.3838 0Z" fill="var(--col-cream)"/>
-                  <path d="M6.13626 23.3391C6.10028 23.4204 5.97205 23.4448 5.8555 23.3891C5.73665 23.3356 5.66983 23.2246 5.70838 23.1429C5.74371 23.0591 5.87195 23.0357 5.99055 23.092C6.10966 23.1453 6.17751 23.2574 6.13626 23.3391ZM6.94218 24.0581C6.86405 24.1306 6.71127 24.0969 6.60758 23.9824C6.50041 23.8682 6.48037 23.7156 6.55965 23.6419C6.64022 23.5696 6.78837 23.6034 6.89579 23.7177C7.00295 23.8333 7.02377 23.985 6.94205 24.0583L6.94218 24.0581ZM7.49509 24.9782C7.3946 25.0479 7.23039 24.9825 7.12901 24.8368C7.02865 24.6912 7.02865 24.5165 7.13119 24.4464C7.23296 24.3764 7.3946 24.4394 7.4974 24.5839C7.59762 24.7321 7.59762 24.9068 7.49496 24.9783L7.49509 24.9782ZM8.43001 26.0438C8.34019 26.1427 8.14899 26.1162 8.00893 25.9811C7.86579 25.849 7.82583 25.6615 7.9159 25.5624C8.00675 25.4632 8.1991 25.4911 8.34019 25.6251C8.48243 25.757 8.52586 25.9459 8.43014 26.0438H8.43001ZM9.63836 26.4036C9.59892 26.5318 9.41465 26.5901 9.22911 26.5356C9.04382 26.4795 8.92252 26.3292 8.95992 26.1995C8.99846 26.0704 9.1835 26.0096 9.37045 26.0679C9.55549 26.1238 9.67704 26.273 9.63849 26.4036H9.63836ZM11.0138 26.5561C11.0184 26.6913 10.861 26.8033 10.6662 26.8057C10.4702 26.81 10.3118 26.7006 10.3097 26.5678C10.3097 26.4313 10.4636 26.3203 10.6594 26.3171C10.8542 26.3132 11.0138 26.4218 11.0138 26.5561ZM12.3647 26.5043C12.3881 26.6361 12.2527 26.7716 12.0593 26.8075C11.8691 26.8422 11.6931 26.7609 11.6688 26.6302C11.6452 26.495 11.7832 26.3597 11.973 26.3247C12.1667 26.291 12.3401 26.3703 12.3647 26.5043Z" fill="#8765AF"/>
-                </g>
-              </svg>
-            </div>
-          </button>
-        </a>
+            </button>
+          </a>
+        </div>
+      </div>
+      <div class="preview-card">
+        <video class="site-demo" autoplay loop muted playsinline>
+          <source src="{% static 'video/pw-demo-c.mp4' %}" type="video/mp4">
+        </video>
+        <div class="card__content">
+          <h3>Peronal website</h3>
+          <div class="card__content__text">
+            <p>The website you are currently on, made to showcase my work.</p>
+            <p>I designed and built this website as a single-page app to maximise its fluidity and enhance user experience. I made use of CSS animations to cohesively pull together the design.</p>
+            <p>I also included two separate colour themes that dynamically change, in order to better compartmentalise the two sections of the site – coding and music.</p>
+            <p></p>
+            <p class="card__content__text__last">Built with Django and vanilla Javascript inside a Docker container. Styled with vanilla CSS.</p>
+          </div>
+        </div>
+        <div class="card__buttons">
+          <a class="btn--a-wrap" href="https://github.com/juancoquet/personalwebsite" target="_blank">
+            <button class="btn card__btn--right">
+              <div class="container container--center">
+                Source code
+                <svg class="icon icon--btn" viewBox="0 0 33 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <g clip-path="url(#clip0_12:45)">
+                    <path d="M16.3838 0C7.33642 0 0 7.33514 0 16.3838C0 23.6227 4.69444 29.764 11.2043 31.9304C12.023 32.082 12.3237 31.575 12.3237 31.1422C12.3237 30.7516 12.3084 29.4608 12.3015 28.0918C7.74337 29.0829 6.78158 26.1588 6.78158 26.1588C6.03631 24.265 4.96248 23.7616 4.96248 23.7616C3.47605 22.7447 5.07453 22.7655 5.07453 22.7655C6.71978 22.8811 7.58609 24.4539 7.58609 24.4539C9.04734 26.9586 11.4188 26.2344 12.3538 25.8159C12.5008 24.7569 12.9254 24.0342 13.3939 23.6251C9.75496 23.2107 5.9294 21.8059 5.9294 15.5281C5.9294 13.7395 6.56944 12.2778 7.61757 11.1305C7.44745 10.7178 6.88669 9.05145 7.77626 6.79469C7.77626 6.79469 9.15206 6.35434 12.283 8.47412C13.5898 8.11099 14.9914 7.92904 16.3838 7.92288C17.7761 7.92904 19.1788 8.11099 20.4882 8.47412C23.6153 6.35434 24.9892 6.79469 24.9892 6.79469C25.881 9.05145 25.32 10.7178 25.1498 11.1305C26.2003 12.2778 26.8359 13.7393 26.8359 15.5281C26.8359 21.8208 23.0032 23.2065 19.355 23.612C19.9426 24.1204 20.4662 25.1176 20.4662 26.646C20.4662 28.8381 20.4472 30.6025 20.4472 31.1422C20.4472 31.5782 20.7421 32.0891 21.5727 31.9282C28.0789 29.7593 32.7674 23.6202 32.7674 16.3838C32.7674 7.33514 25.432 0 16.3838 0Z" fill="var(--col-cream)"/>
+                    <path d="M6.13626 23.3391C6.10028 23.4204 5.97205 23.4448 5.8555 23.3891C5.73665 23.3356 5.66983 23.2246 5.70838 23.1429C5.74371 23.0591 5.87195 23.0357 5.99055 23.092C6.10966 23.1453 6.17751 23.2574 6.13626 23.3391ZM6.94218 24.0581C6.86405 24.1306 6.71127 24.0969 6.60758 23.9824C6.50041 23.8682 6.48037 23.7156 6.55965 23.6419C6.64022 23.5696 6.78837 23.6034 6.89579 23.7177C7.00295 23.8333 7.02377 23.985 6.94205 24.0583L6.94218 24.0581ZM7.49509 24.9782C7.3946 25.0479 7.23039 24.9825 7.12901 24.8368C7.02865 24.6912 7.02865 24.5165 7.13119 24.4464C7.23296 24.3764 7.3946 24.4394 7.4974 24.5839C7.59762 24.7321 7.59762 24.9068 7.49496 24.9783L7.49509 24.9782ZM8.43001 26.0438C8.34019 26.1427 8.14899 26.1162 8.00893 25.9811C7.86579 25.849 7.82583 25.6615 7.9159 25.5624C8.00675 25.4632 8.1991 25.4911 8.34019 25.6251C8.48243 25.757 8.52586 25.9459 8.43014 26.0438H8.43001ZM9.63836 26.4036C9.59892 26.5318 9.41465 26.5901 9.22911 26.5356C9.04382 26.4795 8.92252 26.3292 8.95992 26.1995C8.99846 26.0704 9.1835 26.0096 9.37045 26.0679C9.55549 26.1238 9.67704 26.273 9.63849 26.4036H9.63836ZM11.0138 26.5561C11.0184 26.6913 10.861 26.8033 10.6662 26.8057C10.4702 26.81 10.3118 26.7006 10.3097 26.5678C10.3097 26.4313 10.4636 26.3203 10.6594 26.3171C10.8542 26.3132 11.0138 26.4218 11.0138 26.5561ZM12.3647 26.5043C12.3881 26.6361 12.2527 26.7716 12.0593 26.8075C11.8691 26.8422 11.6931 26.7609 11.6688 26.6302C11.6452 26.495 11.7832 26.3597 11.973 26.3247C12.1667 26.291 12.3401 26.3703 12.3647 26.5043Z" fill="#8765AF"/>
+                  </g>
+                </svg>
+              </div>
+            </button>
+          </a>
+        </div>
       </div>
     </div>
   </div>
 
 
-  <div class="music-tab leave-right hidden">
+  <div class="music-tab content-width leave-right hidden">
     <h2>Watch me play</h2>
     <div class="preview-card">
       <video class="music-clip" controls>
@@ -139,7 +172,7 @@
 </section>
 
 <section class="section--bg2">
-  <div class="code-tab">
+  <div class="code-tab content-width">
     <h2>My toolkit</h2>
     <div class="container">
       <div class="tech-container">
@@ -169,7 +202,7 @@
     </div>
   </div>
 
-  <div class="music-tab leave-right hidden">
+  <div class="music-tab content-width leave-right hidden">
     <h2>About me // My music journey</h2>
     <p>Hi, I’m Juan – I’m a musician and self-taught programmer.</p>
     <p>I began playing drums in 2008 at the age of 12 and since then I’ve been continuously involved in different musical projects primarily within pop & rock settings, gaining studio and performance experience all over the UK.</p>
@@ -179,7 +212,7 @@
 </section>
 
 <section class="section--bg1">
-  <div class="code-tab">
+  <div class="code-tab content-width">
     <h2>About me // My coding journey</h2>
     <p>Hi, I’m Juan – I’m a musician and self-taught programmer.</p>
     <p>I graduated from BIMM London in 2017 with a music degree and since then I’ve spent most of my time teaching drums, guitar and music production to students of all ages and abilities.</p>
@@ -188,38 +221,32 @@
     <p>Going forward I want to develop my skills in more advanced and lower-level fields such as cryptography, machine learning, data science and AI.</p>
     <p>Outside of music and programming, I’m enthusiastic about fitness and reading/learning just about anything.</p>
   </div>
-  <div class="music-tab leave-right hidden">
+  <div class="music-tab content-width leave-right hidden">
     <h2>More media</h2>
-    <div class="preview-card">
-      <video class="media__video" poster="{% static 'img/1lc-thumbnail.png' %}" controls>
-        <source src="{% static 'video/1lc.mp4' %}" type="video/mp4">
-      </video>
-      <div class="card__content">
-        <h3>One Last Cigarette, by The Band Camino</h3>
+    <div class="video-container">
+      <div class="preview-card vid left">
+        <video class="media__video" poster="{% static 'img/1lc-thumbnail.png' %}" controls>
+          <source src="{% static 'video/1lc.mp4' %}" type="video/mp4">
+        </video>
+        <div class="card__content">
+          <h3>One Last Cigarette, by The Band Camino</h3>
+        </div>
+      </div>
+      <div class="preview-card vid">
+        <video class="media__video" poster="{% static 'img/slow-dancing-thumbnail.png' %}" controls>
+          <source src="{% static 'video/slow-dancing.mp4' %}" type="video/mp4">
+        </video>
+        <div class="card__content">
+          <h3>Slow Dancing in a Burning Room, by John Mayer</h3>
+        </div>
       </div>
     </div>
     <div class="preview-card">
       <img class="media__photo" src="{% static 'img/aw-tall.jpg' %}" alt="drums on stage">
     </div>
     <div class="preview-card">
-      <video class="media__video" poster="{% static 'img/slow-dancing-thumbnail.png' %}" controls>
-        <source src="{% static 'video/slow-dancing.mp4' %}" type="video/mp4">
-      </video>
-      <div class="card__content">
-        <h3>Slow Dancing in a Burning Room, by John Mayer</h3>
-      </div>
-    </div>
-    <div class="preview-card">
       <img class="media__photo" src="{% static 'img/profile.jpg' %}" alt="drums on stage">
     </div>
-    {% comment %} <div class="preview-card">
-      <video class="media__video" controls>
-        <source src="{% static 'video/dear-marie.mp4' %}" type="video/mp4">
-      </video>
-      <div class="card__content">
-        <h3>Dear Marie (Live on Letterman), by John Mayer</h3>
-      </div>
-    </div> {% endcomment %}
     <div class="preview-card">
       <img class="media__photo" src="{% static 'img/stage-depth.jpg' %}" alt="drums on stage">
     </div>
@@ -243,7 +270,7 @@
 
 <!-- CONTACT MODAL -->
 <div class="modal-overlay hidden">
-  <div class="modal">
+  <div class="modal leave-top">
     <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 modal__close" fill="none" viewBox="0 0 24 24" stroke="currentColor">
       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
     </svg>

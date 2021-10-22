@@ -21,6 +21,9 @@
     --shadow-dark: rgba(0, 0, 0, 0.05);
 
     --side-padding: 2.4rem;
+    --max-width: 900px;
+
+    /* --vid-max-width: 360px; */
 }
 
 /* themes */
@@ -52,7 +55,7 @@ html {
 }
 
 body {
-    background-color: var(--col-cream);
+    background-color: var(--col-bg2);
     transition: 500ms ease-in-out;
 }
 
@@ -101,10 +104,18 @@ a {
     color: var(--col-cream);
 }
 
+.content-width {
+    width: 100%;
+    max-width: var(--max-width);
+    margin: auto;
+    padding-left: var(--side-padding);
+    padding-right: var(--side-padding);
+}
+
 .section--bg1 {
     display: flex;
     flex-direction: column;
-    padding: 1.6rem var(--side-padding);
+    padding: 1.6rem 0;
     background-color: var(--col-bg1);
     transition: 500ms ease-in-out;
 }
@@ -112,7 +123,7 @@ a {
 .section--bg2 {
     display: flex;
     flex-direction: column;
-    padding: 1.6rem var(--side-padding);
+    padding: 1.6rem 0;
     background-color: var(--col-bg2);
     border-top: 1px solid var(--col-accent);
     border-bottom: 1px solid var(--col-accent);
@@ -141,10 +152,10 @@ header {
     position: sticky;
     top: 0;
     z-index: 999;
+    background-color: rgba(255, 252, 247, 0.93);
 }
 
 nav {
-    background-color: rgba(255, 252, 247, 0.93);
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -184,6 +195,8 @@ nav {
     position: relative;
     border-bottom: 1px solid var(--col-accent);
     transition: 1500ms;
+    display: flex;
+    background-color: var(--col-bg1);
 }
 
 .hero-photo {
@@ -191,27 +204,34 @@ nav {
     max-height: 80vh;
     display: block;
     object-fit: cover;
-    object-position: center 30%;
+    object-position: center 50%;
 }
 
 .hero__text {
+    width: 100%;
+    max-width: var(--max-width);
     position: absolute;
+    padding: 0 var(--side-padding);
+    left: 50%;
     top: 50%;
-    transform: translateY(-50%);
-    right: var(--side-padding);
+    transform: translate(-50%, -50%);
     display: flex;
     flex-direction: column;
     align-items: flex-end;
 }
 
 .hero__text>h2 {
+    min-height: 0vw;
     margin-bottom: 0;
     text-decoration: none;
     color: var(--col-cream);
+    font-size: clamp(3.2rem, 5vw, 6.4rem);
 }
 
 .hero__text>p {
+    min-height: 0vw;
     color: var(--col-cream);
+    font-size: clamp(1.6rem, 2.5vw, 3.2rem);
 }
 
 .overlay {
@@ -282,12 +302,12 @@ nav {
     content: '';
     position: absolute;
     background-color: var(--col-accent);
-    /* border-radius: 2px; */
     height: 1px;
     width: 1.2rem;
     left: 50%;
     top: 50%;
     transform: translate(-50%, calc(-50% + 1.2rem));
+    transition: 500ms;
 }
 
 .btn--a-wrap {
@@ -301,13 +321,24 @@ nav {
     #CARDS
 \*---------------------------*/
 
+.card-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
 .preview-card {
     border: 1px solid var(--col-accent);
     border-radius: 2px;
     margin: 3.2rem 0;
-    max-width: 36rem;
-    box-shadow: 8px 8px 16px var(--shadow-dark),
+    width: 100%;
+    max-width: var(--vid-max-width);
+    box-shadow: 8px 8px 16px var(--shadow-light),
         -8px -8px 16px var(--shadow-light);
+}
+
+.preview-card.top {
+    margin-top: 0;
 }
 
 .card__content {
@@ -335,16 +366,11 @@ nav {
 .site-demo,
 .music-clip {
     width: 100%;
-    max-width: 36rem;
+    max-width: var(--vid-max-width);
     border-bottom: 1px solid var(--col-accent);
     border-radius: 2px 2px 0 0;
     transition: 1500ms;
 }
-
-/* .music-clip {
-    width: 100%;
-    max-width: 36rem;
-} */
 
 .card__btn--left {
     border-bottom: none;
@@ -387,11 +413,32 @@ nav {
 .media__video,
 .media__photo {
     width: 100%;
-    max-width: 460px;
     display: block;
     border-radius: 2px;
 }
 
+
+.preview-card.vid {
+    width: 100%;
+    /* min-width: 400px; */
+}
+
+
+@media only screen and (min-width: 610px) {
+    .video-container {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .preview-card.left {
+        margin-right: 1.6rem;
+    }
+
+    .preview-card.vid {
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+}
 
 
 
@@ -463,6 +510,8 @@ footer {
     display: flex;
     justify-content: center;
     align-items: center;
+    opacity: 0;
+    transition: opacity 500ms ease;
 }
 
 .modal {
@@ -522,7 +571,7 @@ footer {
 }
 
 ::-webkit-scrollbar {
-    width: 8px;
+    width: 6px;
     height: 0;
 }
 
@@ -569,6 +618,11 @@ footer {
 .leave-right--hero {
     transform: translateX(40%);
     opacity: 0;
+    transition: opacity 500ms ease, transform 500ms ease;
+}
+
+.leave-top {
+    transform: translateY(-100%);
     transition: opacity 500ms ease, transform 500ms ease;
 }
 
