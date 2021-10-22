@@ -5,12 +5,11 @@
 
 <section class="hero">
   <img class="hero-photo" src="{% static '/img/hero-1.jpg' %}" alt="Juan Coquet">
-  <img class="hero-photo hidden" src="{% static '/img/stage-depth.jpg' %}" alt="Juan Coquet">
   <div class="overlay"></div>
   <div class="overlay--fade"></div>
   <div class="hero__text">
-    <h2>JUAN COQUET</h2>
-    <p>I write code and play music</p>
+    <h2 id="hero-name" class="leave-left--hero">JUAN COQUET</h2>
+    <p id="hero-caption" class="leave-right--hero">I write code and play music</p>
   </div>
 </section>
 
@@ -35,7 +34,7 @@
           <p>Life events can also be added – these are important landmarks/milestones such as a graduation or the birth of a loved one, and they are displayed on the user's life calendar.</p>
           <p>This project was built using Test Driven Development from the first line of code to the last.</p>
           <p>Time of Your Life supports user authentication and has over 100 active user accounts.</p>
-          <p class="card__content__text__last">Built with Django and some light Javascript. Styled with vanilla CSS.</p>
+          <p class="card__content__text__last">Built with Django and some light Javascript inside a Docker container. Styled with vanilla CSS.</p>
         </div>
       </div>
       <div class="card__buttons">
@@ -76,7 +75,7 @@
           <p>A tool for music learners and teachers. Note Adder helps the user to easily build intuitions about how musical note values interact by representing them in a visual way.</p>
           <p>Having taught music lessons to students of all ages and abilities over several years, I noticed that many beginners often struggle to really understand and internalise musical note values. Through trial and error I developed an effective visual method to help my students understand what's really going on, and then turned it into an interactive web app that brings together visual and auditory aspects.</p>
           <p>I also included a 'Learn' section which explains the fundamentals of rhythmic musical notation from the ground up in an interactive way.</p>
-          <p class="card__content__text__last">Built with Django and vanilla Javascript. Styled with vanilla CSS.</p>
+          <p class="card__content__text__last">Built with Django and vanilla Javascript inside a Docker container. Styled with vanilla CSS.</p>
         </div>
       </div>
       <div class="card__buttons">
@@ -109,25 +108,31 @@
   </div>
 
 
-  <div class="music-tab hidden">
+  <div class="music-tab leave-right hidden">
     <h2>Watch me play</h2>
     <div class="preview-card">
       <video class="music-clip" controls>
         <source src="{% static 'video/one-foot.mp4' %}" type="video/mp4">
       </video>
-      <h3>One Foot, live with Airways</h3>
+      <div class="card__content">
+        <h3>One Foot, live with Airways</h3>
+      </div>
     </div>
     <div class="preview-card">
       <video class="music-clip" controls>
         <source src="{% static 'video/ltyf.mp4' %}" type="video/mp4">
       </video>
-      <h3>Listen to Your Friends, live with Airways</h3>
+      <div class="card__content">
+        <h3>Listen to Your Friends, live with Airways</h3>
+      </div>
     </div>
     <div class="preview-card">
       <video class="music-clip" controls>
         <source src="{% static 'video/reckless-tongue.mp4' %}" type="video/mp4">
       </video>
-      <h3>Reckless Tongue, live with Airways</h3>
+      <div class="card__content">
+        <h3>Reckless Tongue, live with Airways</h3>
+      </div>
     </div>
   </div>
 
@@ -164,10 +169,10 @@
     </div>
   </div>
 
-  <div class="music-tab hidden">
-    <h2>About me</h2>
+  <div class="music-tab leave-right hidden">
+    <h2>About me // My music journey</h2>
     <p>Hi, I’m Juan – I’m a musician and self-taught programmer.</p>
-    <p>I began playing drums in 2008 at the age of 12 and since then I’ve been continuously involved in different musical projects primarily within pop & rock settings, playing shows all over the UK.</p>
+    <p>I began playing drums in 2008 at the age of 12 and since then I’ve been continuously involved in different musical projects primarily within pop & rock settings, gaining studio and performance experience all over the UK.</p>
     <p>I graduated with a music degree from BIMM London in 2017 and since then I’ve invested most of my practice time into learning and improving at playing the guitar.</p>
     <p>After finishing my degree I began providing private drum lessons to students of all ages and abilities, and eventually began teaching guitar and music production as I developed my skills through the years.</p>
   </div>
@@ -175,7 +180,7 @@
 
 <section class="section--bg1">
   <div class="code-tab">
-    <h2>About me</h2>
+    <h2>About me // My coding journey</h2>
     <p>Hi, I’m Juan – I’m a musician and self-taught programmer.</p>
     <p>I graduated from BIMM London in 2017 with a music degree and since then I’ve spent most of my time teaching drums, guitar and music production to students of all ages and abilities.</p>
     <p>Having been interested in tech for a long time, I decided to start learning Python during one of the UK lockdowns. I instantly became hooked on the problem solving and engineering challenges it presented.</p>
@@ -183,8 +188,56 @@
     <p>Going forward I want to develop my skills in more advanced and lower-level fields such as cryptography, machine learning, data science and AI.</p>
     <p>Outside of music and programming, I’m enthusiastic about fitness and reading/learning just about anything.</p>
   </div>
-  <div class="music-tab hidden">
+  <div class="music-tab leave-right hidden">
     <h2>More media</h2>
+    <div class="preview-card">
+      <video class="media__video" poster="{% static 'img/1lc-thumbnail.png' %}" controls>
+        <source src="{% static 'video/1lc.mp4' %}" type="video/mp4">
+      </video>
+      <div class="card__content">
+        <h3>One Last Cigarette, by The Band Camino</h3>
+      </div>
+    </div>
+    <div class="preview-card">
+      <img class="media__photo" src="{% static 'img/aw-tall.jpg' %}" alt="drums on stage">
+    </div>
+    <div class="preview-card">
+      <video class="media__video" poster="{% static 'img/slow-dancing-thumbnail.png' %}" controls>
+        <source src="{% static 'video/slow-dancing.mp4' %}" type="video/mp4">
+      </video>
+      <div class="card__content">
+        <h3>Slow Dancing in a Burning Room, by John Mayer</h3>
+      </div>
+    </div>
+    <div class="preview-card">
+      <img class="media__photo" src="{% static 'img/profile.jpg' %}" alt="drums on stage">
+    </div>
+    {% comment %} <div class="preview-card">
+      <video class="media__video" controls>
+        <source src="{% static 'video/dear-marie.mp4' %}" type="video/mp4">
+      </video>
+      <div class="card__content">
+        <h3>Dear Marie (Live on Letterman), by John Mayer</h3>
+      </div>
+    </div> {% endcomment %}
+    <div class="preview-card">
+      <img class="media__photo" src="{% static 'img/stage-depth.jpg' %}" alt="drums on stage">
+    </div>
+    <div class="preview-card">
+      <img class="media__photo" src="{% static 'img/lumley.jpg' %}" alt="drums on stage">
+    </div>
+    <div class="preview-card">
+      <img class="media__photo" src="{% static 'img/aw-wide.jpg' %}" alt="drums on stage">
+    </div>
+    <div class="preview-card">
+      <img class="media__photo" src="{% static 'img/argo.jpg' %}" alt="drums on stage">
+    </div>
+    <div class="preview-card">
+      <img class="media__photo" src="{% static 'img/hea-shoot.jpg' %}" alt="drums on stage">
+    </div>
+    <div class="preview-card">
+      <img class="media__photo" src="{% static 'img/stage-back.jpg' %}" alt="drums on stage">
+    </div>
   </div>
 </section>
 

@@ -124,6 +124,11 @@ a {
     justify-content: space-between;
 }
 
+.code-tab>* {
+    animation: fadeIn 1500ms ease-in 500ms 1 normal;
+    animation-fill-mode: both;
+}
+
 
 
 
@@ -253,6 +258,8 @@ nav {
     transition: background-color 500ms ease-in-out,
         border 1500ms ease-in-out,
         filter 200ms ease-in-out;
+    animation: fadeIn 1500ms ease-in 500ms 1 normal;
+    animation-fill-mode: both;
 }
 
 .btn:hover {
@@ -287,7 +294,6 @@ nav {
     max-width: 36rem;
     box-shadow: 8px 8px 16px var(--shadow-dark),
         -8px -8px 16px var(--shadow-light);
-    /* transition: border 1500ms ease-in-out, box-shadow 500ms ease-in-out; */
 }
 
 .card__content {
@@ -355,6 +361,21 @@ nav {
 .logo {
     height: 32px;
     margin-bottom: 0.8rem;
+}
+
+
+
+
+/*---------------------------*\
+    #MEDIA
+\*---------------------------*/
+
+.media__video,
+.media__photo {
+    width: 100%;
+    max-width: 460px;
+    display: block;
+    border-radius: 2px;
 }
 
 
@@ -511,4 +532,48 @@ footer {
 .hidden {
     display: none;
     pointer-events: none;
+}
+
+.leave-left {
+    transform: translateX(-100%);
+    opacity: 0;
+    transition: opacity 500ms ease, transform 500ms ease;
+}
+
+.leave-right {
+    transform: translateX(100%);
+    opacity: 0;
+    transition: opacity 500ms ease, transform 500ms ease;
+}
+
+.leave-left--hero {
+    transform: translateX(-40%);
+    opacity: 0;
+    transition: opacity 500ms ease, transform 500ms ease;
+}
+
+.leave-right--hero {
+    transform: translateX(40%);
+    opacity: 0;
+    transition: opacity 500ms ease, transform 500ms ease;
+}
+
+.enter {
+    opacity: 1;
+    transition: opacity 500ms ease, transform 500ms ease;
+}
+
+.enter--load {
+    opacity: 1;
+    transition: opacity 1500ms ease, transform 1500ms ease;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1
+    }
 }
