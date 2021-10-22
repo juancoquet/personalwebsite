@@ -269,11 +269,25 @@ nav {
 
 .btn--tab--left {
     border-radius: 2px 0 0 2px;
+    position: relative;
 }
 
 .btn--tab--right {
     border-left: none;
     border-radius: 0 2px 2px 0;
+    position: relative;
+}
+
+.tab--selected::after {
+    content: '';
+    position: absolute;
+    background-color: var(--col-accent);
+    /* border-radius: 2px; */
+    height: 1px;
+    width: 1.2rem;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, calc(-50% + 1.2rem));
 }
 
 .btn--a-wrap {
@@ -565,7 +579,7 @@ footer {
 
 .enter--load {
     opacity: 1;
-    transition: opacity 1500ms ease, transform 1500ms ease;
+    transition: opacity 1250ms ease-in, transform 1500ms ease;
 }
 
 @keyframes fadeIn {

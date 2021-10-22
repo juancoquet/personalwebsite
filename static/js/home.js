@@ -24,13 +24,15 @@ function closeModal() {
 }
 
 
-// Code/Musisc --------------------------------------
+// Code/Music --------------------------------------
 
 codeTab.addEventListener('click', setCodeTheme);
 
 async function setCodeTheme() {
     document.body.classList.remove("music-theme");
     document.body.classList.add("code-theme");
+    musicTab.classList.remove('tab--selected');
+    codeTab.classList.add('tab--selected');
 
     musicTabItems.forEach(item => {
         item.classList.remove('enter');
@@ -56,6 +58,8 @@ musicTab.addEventListener('click', setMusicTheme);
 async function setMusicTheme() {
     document.body.classList.remove("code-theme");
     document.body.classList.add("music-theme");
+    codeTab.classList.remove('tab--selected');
+    musicTab.classList.add('tab--selected');
 
     codeTabItems.forEach(item => {
         item.classList.remove('enter');
