@@ -1,4 +1,5 @@
 .DS_Store
+docker-compose-prod.yml
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
