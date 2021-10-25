@@ -4,7 +4,7 @@
 {% block content %}
 
 <section class="hero">
-  <img class="hero-photo" src="{% static '/img/hero-4.jpg' %}" alt="Juan Coquet">
+  <img class="hero-photo" src="{% static '/img/hero-4.webp' %}" alt="Juan Coquet">
   <div class="overlay"></div>
   <div class="overlay--fade"></div>
   <div class="hero__text">
@@ -143,32 +143,35 @@
 
   <div class="music-tab content-width leave-right hidden">
     <h2>Watch me play</h2>
+
     <div class="preview-card">
-      <video class="music-clip" preload="metadata" controls playsinline>
-        <source src="{% static 'video/one-foot-c.mp4' %}#t=0.1" type="video/mp4">
-      </video>
-      <div class="card__content">
-        <h3>One Foot, live with Airways</h3>
+      <div class="yt-embed-container">
+        <iframe class="yt-embed" src="https://www.youtube.com/embed/PbGhN4OK44E" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
       </div>
-    </div>
-    <div class="preview-card">
-      <video class="music-clip" preload="metadata" controls playsinline>
-        <source src="{% static 'video/ltyf-c.mp4' %}#t=0.1" type="video/mp4">
-      </video>
-      <div class="card__content">
-        <h3>Listen to Your Friends, live with Airways</h3>
-      </div>
-    </div>
-    <div class="preview-card">
-      <video class="music-clip" preload="metadata" controls playsinline>
-        <source src="{% static 'video/reckless-tongue-c.mp4' %}#t=0.1" type="video/mp4">
-      </video>
       <div class="card__content">
         <h3>Reckless Tongue, live with Airways</h3>
       </div>
     </div>
-  </div>
+    
+    <div class="preview-card">
+        <div class="yt-embed-container">
+          <iframe class="yt-embed" src="https://www.youtube.com/embed/u_Lmn6zmqFM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+      <div class="card__content">
+        <h3>One Foot, live with Airways</h3>
+      </div>
+    </div>
 
+    <div class="preview-card">
+      <div class="yt-embed-container">
+        <iframe class="yt-embed" src="https://www.youtube.com/embed/5wRFHOawpF8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+      <div class="card__content">
+        <h3>Listen to Your Friends, live with Airways</h3>
+      </div>
+    </div>
+
+  </div>
 </section>
 
 <section class="section--bg2">
@@ -225,16 +228,16 @@
     <h2>More media</h2>
     <div class="video-container">
       <div class="preview-card vid left">
-        <video class="media__video" poster="{% static 'img/1lc-thumbnail.png' %}" controls playsinline>
-          <source src="{% static 'video/1lc-web.mp4' %}" type="video/mp4">
+        <video class="media__video" preload="metadata" controls playsinline>
+          <source src="{% static 'video/1lc-web.mp4' %}#t=25.7" type="video/mp4">
         </video>
         <div class="card__content">
           <h3>One Last Cigarette, by The Band Camino</h3>
         </div>
       </div>
       <div class="preview-card vid">
-        <video class="media__video" poster="{% static 'img/slow-dancing-thumbnail.png' %}" controls playsinline>
-          <source src="{% static 'video/slow-dancing-web.mp4' %}" type="video/mp4">
+        <video class="media__video" preload="metadata" controls playsinline>
+          <source src="{% static 'video/slow-dancing-web.mp4' %}#t=7.8" type="video/mp4">
         </video>
         <div class="card__content">
           <h3>Slow Dancing in a Burning Room, by John Mayer</h3>
@@ -242,28 +245,28 @@
       </div>
     </div>
     <div class="preview-card">
-      <img class="media__photo" src="{% static 'img/aw-tall-min.jpg' %}" alt="drums on stage">
+      <img class="media__photo" src="{% static 'img/aw-tall-min.webp' %}" alt="drums on stage">
     </div>
     <div class="preview-card">
-      <img class="media__photo" src="{% static 'img/profile-min.jpg' %}" alt="drums on stage">
+      <img class="media__photo" src="{% static 'img/profile-min.webp' %}" alt="drums on stage">
     </div>
     <div class="preview-card">
-      <img class="media__photo" src="{% static 'img/stage-depth-min.jpg' %}" alt="drums on stage">
+      <img class="media__photo" src="{% static 'img/stage-depth-min.webp' %}" alt="drums on stage">
     </div>
     <div class="preview-card">
-      <img class="media__photo" src="{% static 'img/lumley.jpg' %}" alt="drums on stage">
+      <img class="media__photo" src="{% static 'img/lumley.webp' %}" alt="drums on stage">
     </div>
     <div class="preview-card">
-      <img class="media__photo" src="{% static 'img/aw-wide-min.jpg' %}" alt="drums on stage">
+      <img class="media__photo" src="{% static 'img/aw-wide-min.webp' %}" alt="drums on stage">
     </div>
     <div class="preview-card">
-      <img class="media__photo" src="{% static 'img/argo.jpg' %}" alt="drums on stage">
+      <img class="media__photo" src="{% static 'img/argo.webp' %}" alt="drums on stage">
     </div>
     <div class="preview-card">
-      <img class="media__photo" src="{% static 'img/hea-shoot.jpg' %}" alt="drums on stage">
+      <img class="media__photo" src="{% static 'img/hea-shoot.webp' %}" alt="drums on stage">
     </div>
     <div class="preview-card">
-      <img class="media__photo" src="{% static 'img/stage-back-min.jpg' %}" alt="drums on stage">
+      <img class="media__photo" src="{% static 'img/stage-back-min.webp' %}" alt="drums on stage">
     </div>
   </div>
 </section>
