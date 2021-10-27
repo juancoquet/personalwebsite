@@ -4,7 +4,7 @@
 {% block content %}
 
 <section class="hero">
-  <img class="hero-photo" src="{% static '/img/hero-4.webp' %}" alt="Juan Coquet">
+  <img class="hero-photo" src="{% static '/img/hero-4-r.webp' %}" alt="Juan Coquet">
   <div class="overlay"></div>
   <div class="overlay--fade"></div>
   <div class="hero__text">
@@ -244,29 +244,83 @@
         </div>
       </div>
     </div>
+
+    
     <div class="preview-card">
-      <img class="media__photo" src="{% static 'img/aw-tall-min.webp' %}" alt="drums on stage">
+      <img class="media__photo" src="{% static 'img/aw-tall-min1800.webp' %}" alt="drums on stage"
+        srcset="{% static 'img/aw-tall-min1800.webp' %} 1800w,
+                {% static 'img/aw-tall-min1200.webp' %} 1200w,
+                {% static 'img/aw-tall-min900.webp' %} 900w,
+                {% static 'img/aw-tall-min700.webp' %} 700w,
+                {% static 'img/aw-tall-min500.webp' %} 500w,
+                {% static 'img/aw-tall-min350.webp' %} 350w"
+        sizes="(max-width: 900px) 100vw - 4.8rem, 900px - 4.8rem">
+    </div>
+
+    <div class="preview-card">
+      <img class="media__photo" src="{% static 'img/profile-min1800.webp' %}"
+        srcset="{% static 'img/profile-min1800.webp' %} 1800w,
+                {% static 'img/profile-min1200.webp' %} 1200w,
+                {% static 'img/profile-min900.webp' %} 900w,
+                {% static 'img/profile-min700.webp' %} 700w,
+                {% static 'img/profile-min500.webp' %} 500w,
+                {% static 'img/profile-min350.webp' %} 350w"
+        sizes="(max-width: 900px) 100vw - 4.8rem, 900px - 4.8rem">
+    </div>
+
+    <div class="preview-card">
+      <img class="media__photo" src="{% static 'img/stage-depth-min1800.webp' %}" alt="drums on stage"
+        srcset="{% static 'img/stage-depth-min1800.webp' %} 1800w,
+                {% static 'img/stage-depth-min1200.webp' %} 1200w,
+                {% static 'img/stage-depth-min900.webp' %} 900w,
+                {% static 'img/stage-depth-min700.webp' %} 700w,
+                {% static 'img/stage-depth-min500.webp' %} 500w,
+                {% static 'img/stage-depth-min350.webp' %} 350w"
+        sizes="(max-width: 900px) 100vw - 4.8rem, 900px - 4.8rem">
     </div>
     <div class="preview-card">
-      <img class="media__photo" src="{% static 'img/profile-min.webp' %}" alt="drums on stage">
+      <img class="media__photo" src="{% static 'img/lumley900.webp' %}" alt="drums on stage"
+        srcset="{% static 'img/lumley900.webp' %} 900w,
+                {% static 'img/lumley700.webp' %} 700w,
+                {% static 'img/lumley500.webp' %} 500w,
+                {% static 'img/lumley350.webp' %} 350w"
+        sizes="(max-width: 900px) 100vw - 4.8rem, 900px - 4.8rem">
     </div>
     <div class="preview-card">
-      <img class="media__photo" src="{% static 'img/stage-depth-min.webp' %}" alt="drums on stage">
+      <img class="media__photo" src="{% static 'img/aw-wide-min1800.webp' %}" alt="drums on stage"
+        srcset="{% static 'img/aw-wide-min1800.webp' %} 1800w,
+                {% static 'img/aw-wide-min1200.webp' %} 1200w,
+                {% static 'img/aw-wide-min900.webp' %} 900w,
+                {% static 'img/aw-wide-min700.webp' %} 700w,
+                {% static 'img/aw-wide-min500.webp' %} 500w,
+                {% static 'img/aw-wide-min350.webp' %} 350w"
+        sizes="(max-width: 900px) 100vw - 4.8rem, 900px - 4.8rem">
     </div>
     <div class="preview-card">
-      <img class="media__photo" src="{% static 'img/lumley.webp' %}" alt="drums on stage">
+      <img class="media__photo" src="{% static 'img/argo900.webp' %}" alt="drums on stage"
+        srcset="{% static 'img/argo900.webp' %} 900w,
+                {% static 'img/argo700.webp' %} 700w,
+                {% static 'img/argo500.webp' %} 500w,
+                {% static 'img/argo350.webp' %} 350w"
+        sizes="(max-width: 900px) 100vw - 4.8rem, 900px - 4.8rem">
     </div>
     <div class="preview-card">
-      <img class="media__photo" src="{% static 'img/aw-wide-min.webp' %}" alt="drums on stage">
+      <img class="media__photo" src="{% static 'img/hea-shoot900.webp' %}" alt="drums on stage"
+        srcset="{% static 'img/hea-shoot900.webp' %} 900w,
+                {% static 'img/hea-shoot700.webp' %} 700w,
+                {% static 'img/hea-shoot500.webp' %} 500w,
+                {% static 'img/hea-shoot350.webp' %} 350w"
+        sizes="(max-width: 900px) 100vw - 4.8rem, 900px - 4.8rem">
     </div>
     <div class="preview-card">
-      <img class="media__photo" src="{% static 'img/argo.webp' %}" alt="drums on stage">
-    </div>
-    <div class="preview-card">
-      <img class="media__photo" src="{% static 'img/hea-shoot.webp' %}" alt="drums on stage">
-    </div>
-    <div class="preview-card">
-      <img class="media__photo" src="{% static 'img/stage-back-min.webp' %}" alt="drums on stage">
+      <img class="media__photo" src="{% static 'img/stage-back-min1800.webp' %}" alt="drums on stage"
+        srcset="{% static 'img/stage-back-min1800.webp' %} 1800w,
+                {% static 'img/stage-back-min1200.webp' %} 1200w,
+                {% static 'img/stage-back-min900.webp' %} 900w,
+                {% static 'img/stage-back-min700.webp' %} 700w,
+                {% static 'img/stage-back-min500.webp' %} 500w,
+                {% static 'img/stage-back-min350.webp' %} 350w"
+        sizes="(max-width: 900px) 100vw - 4.8rem, 900px - 4.8rem">
     </div>
   </div>
 </section>
