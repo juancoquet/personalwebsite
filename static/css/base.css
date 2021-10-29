@@ -73,7 +73,10 @@ h1 {
 h2 {
     font-size: 3.2rem;
     margin-bottom: 3.2rem;
-    text-decoration: underline var(--col-accent) solid;
+    text-decoration: underline;
+    text-decoration-color: var(--col-accent);
+    text-decoration-thickness: 1px;
+    text-underline-offset: 3px;
 }
 
 h3 {
@@ -506,7 +509,10 @@ footer {
 }
 
 .mail-link {
-    text-decoration: underline solid var(--col-text);
+    text-decoration: underline;
+    text-decoration-color: var(--col-text);
+    text-decoration-thickness: 1px;
+    text-underline-offset: 2px;
 }
 
 
@@ -571,7 +577,10 @@ footer {
 }
 
 .modal__mail-link {
-    text-decoration: underline var(--col-navy-dark) solid;
+    text-decoration: underline;
+    text-decoration-color: var(--col-navy-dark);
+    text-decoration-thickness: 1px;
+    text-underline-offset: 2px;
 }
 
 
