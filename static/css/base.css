@@ -169,6 +169,12 @@ nav {
     height: 4.8rem;
 }
 
+.nav__item {
+    font-family: 'Playfair Display', serif;
+    color: var(--col-navy-dark);
+    cursor: pointer;
+}
+
 .nav__contact {
     font-family: 'Playfair Display', serif;
     color: var(--col-navy-dark);

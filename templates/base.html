@@ -31,7 +31,8 @@
 <header>
   <nav class="content-width">
     <a href="{% url 'home' %}"><img id="signature" src="{% static 'svg/signature.svg' %}"></a>
-    <p class="nav__contact">CONTACT</p>
+    <a href={% url 'library'%}><p class="nav__item nav__books">BOOKS</p></a>
+    <p class="nav__item nav__contact">CONTACT</p>
   </nav>
 </header>
 
