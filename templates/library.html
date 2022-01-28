@@ -2,5 +2,10 @@
 {% load static %}
 
 {% block content %}
-<h1>Books</h1>
+<section class="section--bg-1">
+  <div class="content-width">
+    <h1>Books</h1>
+    <p><a href="{% url 'note' book_title='Test Driven Development with Python' note_title='Testing forms' %}">note</a></p>
+  </div>
+</section>
 {% endblock content %}
