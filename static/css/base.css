@@ -641,6 +641,13 @@ pre code {
     padding: 2rem;
 }
 
+code {
+    background-color: var(--col-bg1);
+    font-size: 1.3rem;
+    color: var(--col-text);
+    padding: 0 0.3rem;
+}
+
 
 
 

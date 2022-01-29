@@ -281,3 +281,15 @@ class MarkdownParseTest(TestCase):
         result = parse_md.parse_p(text)
         expected = '<p>this should parse</p>\n1. this should not parse\n<p>this should also parse</p>\n12. this should not parse either'
         self.assertEqual(result, expected)
+
+    def test_parse_inline_code(self):
+        text = 'this is a paragraph with `inline code`'
+        result = parse_md.parse_inline_code(text)
+        expected = 'this is a paragraph with <code>inline code</code>'
+        self.assertEqual(result, expected)
+
+    def test_parse_inline_code_does_not_parse_inside_code_block(self):
+        text = '```\n`this should not parse`\n```'
+        result = parse_md.parse_inline_code(text)
+        expected = '```\n`this should not parse`\n```'
+        self.assertEqual(result, expected)
