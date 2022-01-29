@@ -618,6 +618,31 @@ footer {
 
 
 
+/*---------------------------*\
+    #NOTE
+\*---------------------------*/
+.note {
+    /* background-color: var(--col-cream); */
+}
+
+
+
+
+/*---------------------------*\
+    #CODE BLOCK
+\*---------------------------*/
+pre code {
+    background-color: var(--col-bg1);
+    padding: 0.4rem;
+    border-radius: 2px;
+    font-size: 1.3rem;
+    color: var(--col-text);
+    display: block;
+    padding: 2rem;
+}
+
+
+
 
 /*---------------------------*\
     #HIDE UTILITY

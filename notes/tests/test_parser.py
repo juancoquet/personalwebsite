@@ -4,7 +4,7 @@ from unittest import skip
 from .. import parse_md
 
 
-class HeadingParseTest(TestCase):
+class MarkdownParseTest(TestCase):
 
     def test_parse_h1(self):
         text = '# Title being tested'
@@ -238,4 +238,46 @@ class HeadingParseTest(TestCase):
         text = '```python\nprint("hello world")\n```\nrandom text\n```python\nprint("hello world2")\n```'
         result = parse_md.parse_code_block(text)
         expected = '<pre><code>\nprint("hello world")\n</code></pre>\nrandom text\n<pre><code>\nprint("hello world2")\n</code></pre>'
+        self.assertEqual(result, expected)
+
+    def test_parse_p(self):
+        text = 'this is a paragraph'
+        result = parse_md.parse_p(text)
+        expected = '<p>this is a paragraph</p>'
+        self.assertEqual(result, expected)
+
+    def test_parse_p_on_multiple_lines(self):
+        text = 'this is a paragraph\nthis is another paragraph'
+        result = parse_md.parse_p(text)
+        expected = '<p>this is a paragraph</p>\n<p>this is another paragraph</p>'
+        self.assertEqual(result, expected)
+
+    def test_p_does_not_parse_inside_code_block(self):
+        text = 'this should parse\n```\nthis should not parse\n```\nthis should also parse'
+        result = parse_md.parse_p(text)
+        expected = '<p>this should parse</p>\n```\nthis should not parse\n```\n<p>this should also parse</p>'
+        self.assertEqual(result, expected)
+
+    def test_p_does_not_parse_heading(self):
+        text = 'this should parse\n# this should not parse\nthis should also parse'
+        result = parse_md.parse_p(text)
+        expected = '<p>this should parse</p>\n# this should not parse\n<p>this should also parse</p>'
+        self.assertEqual(result, expected)
+
+    def test_p_does_not_parse_quote(self):
+        text = 'this should parse\n> this should not parse\nthis should also parse'
+        result = parse_md.parse_p(text)
+        expected = '<p>this should parse</p>\n> this should not parse\n<p>this should also parse</p>'
+        self.assertEqual(result, expected)
+
+    def test_p_does_not_parse_unordered_list(self):
+        text = 'this should parse\n- this should not parse\nthis should also parse\n* this should not parse either'
+        result = parse_md.parse_p(text)
+        expected = '<p>this should parse</p>\n- this should not parse\n<p>this should also parse</p>\n* this should not parse either'
+        self.assertEqual(result, expected)
+
+    def test_p_does_not_parse_ordered_list(self):
+        text = 'this should parse\n1. this should not parse\nthis should also parse\n12. this should not parse either'
+        result = parse_md.parse_p(text)
+        expected = '<p>this should parse</p>\n1. this should not parse\n<p>this should also parse</p>\n12. this should not parse either'
         self.assertEqual(result, expected)
