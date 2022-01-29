@@ -84,3 +84,8 @@ def parse_h6(markdown):
         replaced.append(line)
     replaced = '\n'.join(replaced)
     return replaced
+
+def parse_code_block(markdown):
+    code_block = re.compile(r'^```.*?$(.+?)^```$', re.MULTILINE | re.DOTALL)
+    replaced = code_block.sub(r'<pre><code>\1</code></pre>', markdown)
+    return replaced

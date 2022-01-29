@@ -4,7 +4,7 @@ from unittest import skip
 from .. import parse_md
 
 
-class ParserTest(TestCase):
+class HeadingParseTest(TestCase):
 
     def test_parse_h1(self):
         text = '# Title being tested'
@@ -220,4 +220,22 @@ class ParserTest(TestCase):
         text = '```\n####### python comment\nmy_var = "hello world"\n####### python comment2\n```'
         result = parse_md.parse_h6(text)
         expected = '```\n####### python comment\nmy_var = "hello world"\n####### python comment2\n```'
+        self.assertEqual(result, expected)
+
+    def test_parse_code_block(self):
+        text = '```python\nprint("hello world")\n```'
+        result = parse_md.parse_code_block(text)
+        expected = '<pre><code>\nprint("hello world")\n</code></pre>'
+        self.assertEqual(result, expected)
+
+    def test_parse_code_block_with_multiple_lines(self):
+        text = 'preceding text\n```python\nprint("hello world")\nmy_var = 123\n```\nmore text'
+        result = parse_md.parse_code_block(text)
+        expected = 'preceding text\n<pre><code>\nprint("hello world")\nmy_var = 123\n</code></pre>\nmore text'
+        self.assertEqual(result, expected)
+
+    def test_parse_multiple_code_blocks(self):
+        text = '```python\nprint("hello world")\n```\nrandom text\n```python\nprint("hello world2")\n```'
+        result = parse_md.parse_code_block(text)
+        expected = '<pre><code>\nprint("hello world")\n</code></pre>\nrandom text\n<pre><code>\nprint("hello world2")\n</code></pre>'
         self.assertEqual(result, expected)
