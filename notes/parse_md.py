@@ -10,6 +10,7 @@ def parse_markdown(markdown):
     markdown = parse_h6(markdown)
     markdown = parse_p(markdown)
     markdown = parse_inline_code(markdown)
+    markdown = parse_hr(markdown)
     markdown = parse_code_block(markdown) # keep this at the end
     return markdown
 
@@ -103,7 +104,7 @@ def parse_h6(markdown):
     return replaced
 
 def parse_p(markdown):
-    p = re.compile(r'^((?!```|#{1,6}\s|>\s|-\s|\*\s|\d+.\s).*)$', re.MULTILINE)
+    p = re.compile(r'^((?!```|#{1,6}\s|>\s|-\s|\*\s|\d+.\s|^---$).*)$', re.MULTILINE)
     lines = markdown.split('\n')
     code_block = False
     replaced = []
@@ -126,6 +127,20 @@ def parse_inline_code(markdown):
             code_block = not code_block
         if not code_block:
             line = inline_code.sub(r'<code>\1</code>', line)
+        replaced.append(line)
+    replaced = '\n'.join(replaced)
+    return replaced
+
+def parse_hr(markdown):
+    hr = re.compile(r'^---$', re.MULTILINE)
+    lines = markdown.split('\n')
+    code_block = False
+    replaced = []
+    for line in lines:
+        if line.startswith('```'):
+            code_block = not code_block
+        if not code_block and line.startswith('---'):
+            line = hr.sub(r'<hr>', line)
         replaced.append(line)
     replaced = '\n'.join(replaced)
     return replaced

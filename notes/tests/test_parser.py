@@ -1,4 +1,4 @@
-from unittest import TestCase
+from unittest import TestCase, result
 from unittest import skip
 
 from .. import parse_md
@@ -292,4 +292,22 @@ class MarkdownParseTest(TestCase):
         text = '```\n`this should not parse`\n```'
         result = parse_md.parse_inline_code(text)
         expected = '```\n`this should not parse`\n```'
+        self.assertEqual(result, expected)
+
+    def test_parse_hr(self):
+        text = 'this is a paragraph\n\n---\nmore text'
+        result = parse_md.parse_hr(text)
+        expected = 'this is a paragraph\n\n<hr>\nmore text'
+        self.assertEqual(result, expected)
+
+    def test_parse_hr_does_not_parse_inside_code_block(self):
+        text = '```\n---\n```'
+        result = parse_md.parse_hr(text)
+        expected = '```\n---\n```'
+        self.assertEqual(result, expected)
+
+    def test_hr_does_not_parse_mid_paragraph(self):
+        text = 'this --- should not parse'
+        result = parse_md.parse_hr(text)
+        expected = 'this --- should not parse'
         self.assertEqual(result, expected)
