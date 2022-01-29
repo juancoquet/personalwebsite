@@ -35,3 +35,6 @@ class ParserTest(TestCase):
         result = parse_md.parse_h1(text)
         expected = '```\n# python comment\nmy_var = "hello world"\n```'
         self.assertEqual(result, expected)
+
+    def test_code_block_parses(self):
+        pass
