@@ -294,6 +294,36 @@ class MarkdownParseTest(TestCase):
         expected = '```\n`this should not parse`\n```'
         self.assertEqual(result, expected)
 
+    def test_parse_bold(self):
+        text = 'this is a paragraph with **bold text**'
+        result = parse_md.parse_bold(text)
+        expected = 'this is a paragraph with <strong>bold text</strong>'
+        self.assertEqual(result, expected)
+
+    def test_parse_bold_does_not_parse_inside_code_block(self):
+        text = '```\n**this should not parse**\n```'
+        result = parse_md.parse_bold(text)
+        expected = '```\n**this should not parse**\n```'
+        self.assertEqual(result, expected)
+    
+    def test_parse_italic(self):
+        text = 'this is a paragraph with *italic text*'
+        result = parse_md.parse_italic(text)
+        expected = 'this is a paragraph with <em>italic text</em>'
+        self.assertEqual(result, expected)
+
+    def test_parse_italic_does_not_parse_inside_code_block(self):
+        text = '```\n*this should not parse*\n```'
+        result = parse_md.parse_italic(text)
+        expected = '```\n*this should not parse*\n```'
+        self.assertEqual(result, expected)
+
+    def test_parse_italic_does_not_parse_bold(self):
+        text = 'this is a paragraph with **bold text**'
+        result = parse_md.parse_italic(text)
+        expected = 'this is a paragraph with **bold text**'
+        self.assertEqual(result, expected)
+
     def test_parse_hr(self):
         text = 'this is a paragraph\n\n---\nmore text'
         result = parse_md.parse_hr(text)
