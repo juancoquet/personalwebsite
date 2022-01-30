@@ -341,3 +341,23 @@ class MarkdownParseTest(TestCase):
         result = parse_md.parse_hr(text)
         expected = 'this --- should not parse'
         self.assertEqual(result, expected)
+
+    def test_parse_ul(self):
+        text = 'this is a paragraph\n- item 1\n- item 2\n- item 3\nmore text'
+        result = parse_md.parse_ul(text)
+        expected = 'this is a paragraph\n<ul>\n<li>item 1</li>\n<li>item 2</li>\n<li>item 3</li>\n</ul>\nmore text'
+        self.assertEqual(result, expected)
+
+    def test_parse_multiple_ul(self):
+        text = 'this is a paragraph\n- item 1\n- item 2\nmore text before another list\n- item 3\n- item 4\n'\
+            'more text after another list'
+        result = parse_md.parse_ul(text)
+        expected = 'this is a paragraph\n<ul>\n<li>item 1</li>\n<li>item 2</li>\n</ul>\nmore text before another list\n<ul>\n'\
+            '<li>item 3</li>\n<li>item 4</li>\n</ul>\nmore text after another list'
+        self.assertEqual(result, expected)
+
+    def test_parse_sub_ul(self):
+        text = '- item 1\n\t- sub item 1\n\t- sub item 2\n- item 2\n\t- sub item 3'
+        result = parse_md.parse_ul(text)
+        expected = '''<ul>\n<li>item 1</li>\n<ul>\n<li>sub item 1</li>\n<li>sub item 2</li>\n</ul>\n<li>item 2</li>\n<ul>\n<li>sub item 3</li>\n</ul>\n</ul>'''
+        self.assertEqual(result, expected)

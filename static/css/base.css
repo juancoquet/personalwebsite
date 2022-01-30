@@ -86,10 +86,15 @@ h3 {
 }
 
 p,
-span {
+span,
+li {
     font-size: 1.6rem;
     font-family: 'Nunito', sans-serif;
     color: var(--col-text);
+}
+
+ul {
+    margin-left: 1.6rem;
 }
 
 p {
