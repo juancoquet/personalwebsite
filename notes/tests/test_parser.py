@@ -345,19 +345,63 @@ class MarkdownParseTest(TestCase):
     def test_parse_ul(self):
         text = 'this is a paragraph\n- item 1\n- item 2\n- item 3\nmore text'
         result = parse_md.parse_ul(text)
-        expected = 'this is a paragraph\n<ul>\n<li>item 1</li>\n<li>item 2</li>\n<li>item 3</li>\n</ul>\nmore text'
+        expected = 'this is a paragraph\n<ul>\n<li>item 1</li>\n<li>item 2</li>\n<li>item 3</li>\n'\
+            '</ul>\nmore text'
         self.assertEqual(result, expected)
 
     def test_parse_multiple_ul(self):
         text = 'this is a paragraph\n- item 1\n- item 2\nmore text before another list\n- item 3\n- item 4\n'\
             'more text after another list'
         result = parse_md.parse_ul(text)
-        expected = 'this is a paragraph\n<ul>\n<li>item 1</li>\n<li>item 2</li>\n</ul>\nmore text before another list\n<ul>\n'\
-            '<li>item 3</li>\n<li>item 4</li>\n</ul>\nmore text after another list'
+        expected = 'this is a paragraph\n<ul>\n<li>item 1</li>\n<li>item 2</li>\n</ul>\n'\
+            'more text before another list\n<ul>\n<li>item 3</li>\n<li>item 4</li>\n</ul>\n'\
+            'more text after another list'
         self.assertEqual(result, expected)
 
     def test_parse_sub_ul(self):
         text = '- item 1\n\t- sub item 1\n\t- sub item 2\n- item 2\n\t- sub item 3'
         result = parse_md.parse_ul(text)
-        expected = '''<ul>\n<li>item 1</li>\n<ul>\n<li>sub item 1</li>\n<li>sub item 2</li>\n</ul>\n<li>item 2</li>\n<ul>\n<li>sub item 3</li>\n</ul>\n</ul>'''
+        expected = '<ul>\n<li>item 1</li>\n<ul>\n<li>sub item 1</li>\n<li>sub item 2</li>\n</ul>\n'\
+            '<li>item 2</li>\n<ul>\n<li>sub item 3</li>\n</ul>\n</ul>'
+        self.assertEqual(result, expected)
+
+    def test_parse_ol(self):
+        text = 'this is a paragraph\n1. item 1\n2. item 2\n3. item 3\nmore text'
+        result = parse_md.parse_ol(text)
+        expected = 'this is a paragraph\n<ol>\n<li>item 1</li>\n<li>item 2</li>\n<li>item 3</li>\n'\
+            '</ol>\nmore text'
+        self.assertEqual(result, expected)
+    
+    def test_parse_multiple_ol(self):
+        text = 'this is a paragraph\n1. item 1\n2. item 2\nmore text before another list\n1. item 3\n'\
+            '2. item 4\nmore text after another list'
+        result = parse_md.parse_ol(text)
+        expected = 'this is a paragraph\n<ol>\n<li>item 1</li>\n<li>item 2</li>\n</ol>\n'\
+            'more text before another list\n<ol>\n<li>item 3</li>\n<li>item 4</li>\n</ol>\n'\
+            'more text after another list'
+        self.assertEqual(result, expected)
+
+    def test_replace_html_characters(self):
+        text = 'this <code>should change to encoded symbols</code>'
+        result = parse_md.replace_special_characters(text)
+        expected = 'this &lt;code&gt;should change to encoded symbols&lt;/code&gt;'
+        self.assertEqual(result, expected)
+
+    def test_parse_wiki_link(self):
+        text = 'this links to the [[Functional tests]] note'
+        result = parse_md.parse_wiki_link(text)
+        expected = '''this links to the <a href="{% url 'note' '''\
+            '''book_title='Test Driven Development with Python' '''\
+            '''note_title='Functional tests' %}">Functional tests</a> note'''
+        self.assertEqual(result, expected)
+
+    def test_parse_multiple_wiki_links(self):
+        text = '[[Functional tests]] [[TDD workflow]]'
+        result = parse_md.parse_wiki_link(text)
+        expected = '''<a href="{% url 'note' '''\
+            '''book_title='Test Driven Development with Python' '''\
+            '''note_title='Functional tests' %}">Functional tests</a> '''\
+            '''<a href="{% url 'note' '''\
+            '''book_title='Test Driven Development with Python' '''\
+            '''note_title='TDD workflow' %}">TDD workflow</a>'''
         self.assertEqual(result, expected)

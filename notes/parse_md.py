@@ -1,9 +1,10 @@
+from cgitb import html
+import os
 import re
-
-from django.test import tag
 
 
 def parse_markdown(markdown):
+    markdown = replace_special_characters(markdown)
     markdown = parse_h1(markdown)
     markdown = parse_h2(markdown)
     markdown = parse_h3(markdown)
@@ -16,8 +17,18 @@ def parse_markdown(markdown):
     markdown = parse_italic(markdown)
     markdown = parse_hr(markdown)
     markdown = parse_ul(markdown)
+    markdown = parse_ol(markdown)
     markdown = parse_code_block(markdown) # keep this at the end
     return markdown
+
+def replace_special_characters(markdown):
+    amp = re.compile(r'&')
+    replaced = amp.sub(r'&amp;', markdown)
+    gt = re.compile(r'>')
+    replaced = gt.sub(r'&gt;', replaced)
+    lt = re.compile(r'<')
+    replaced = lt.sub(r'&lt;', replaced)
+    return replaced
 
 def parse_code_block(markdown):
     code_block = re.compile(r'^```.*?$(.+?)^```$', re.MULTILINE | re.DOTALL)
@@ -32,7 +43,7 @@ def parse_outside_code_block(markdown, re_pattern, tag):
         if line.startswith('```'):
             code_block = not code_block
         if not code_block:
-            line = re_pattern.sub(r'<%s>\1</%s>' % (tag, tag), line)
+            line = re_pattern.sub(r'<{}>\1</{}>'.format(tag, tag), line)
         replaced.append(line)
     replaced = '\n'.join(replaced)
     return replaced
@@ -101,14 +112,6 @@ def parse_hr(markdown):
     replaced = '\n'.join(replaced)
     return replaced
 
-# def parse_ul(markdown):
-#     # flattens any nested lists
-#     ul = re.compile(r'(^-\s.+$(\n\t*-\s.+$)*)', re.MULTILINE)
-#     replaced = ul.sub(r'<ul>\n\1\n</ul>', markdown)
-#     li = re.compile(r'(^(?:\t*-\s)(.+)$)', re.MULTILINE)
-#     replaced = li.sub(r'<li>\2</li>', replaced)
-#     return replaced
-
 def parse_ul(markdown):
     # supports one level of nesting
     ul = re.compile(r'(?P<main>^\t*-\s.+$(\n\t*-\s.+$)*)', re.MULTILINE)
@@ -118,3 +121,43 @@ def parse_ul(markdown):
     li = re.compile(r'(^(?:\t*-\s)(.+)$)', re.MULTILINE)
     replaced = li.sub(r'<li>\2</li>', replaced)
     return replaced
+
+def parse_ol(markdown):
+    ol = re.compile(r'(?P<main>^\d+\.\s.+$(\n\d+\.\s.+$)*)', re.MULTILINE)
+    replaced = ol.sub(r'<ol>\n\g<main>\n</ol>', markdown)
+    nested = re.compile(r'(?P<main>^\t+\d+\.\s.+$(\n\t+\d+\.\s.+$)*)', re.MULTILINE)
+    replaced = nested.sub(r'<ol>\n\g<main>\n</ol>', replaced)
+    li = re.compile(r'(^(?:\d+\.\s)(.+)$)', re.MULTILINE)
+    replaced = li.sub(r'<li>\2</li>', replaced)
+    return replaced
+
+def parse_wiki_link(markdown):
+    wiki_link = re.compile(r'\[\[(?P<note_title>.+?)\]\]')
+    note_title = wiki_link.search(markdown).group('note_title')
+    print(note_title)
+    source = locate_note_source(note_title)
+    if source is not None:
+        html = f"""<a href="{{% url 'note' book_title='{source}' note_title='{note_title}' %}}">{note_title}</a>"""
+        replaced = wiki_link.sub(html, markdown)
+        return replaced
+    else:
+        return markdown
+                
+
+def locate_note_source(note_title):
+    note_title += '.md'
+    os.chdir('notes/markdown')
+    source = None
+    for curr_path, dirs, files in os.walk('.'):
+        for file in files:
+            if file == note_title:
+                source = curr_path.split('/')[1]
+                break
+    return source
+                
+
+
+
+if __name__ == '__main__':
+    md = '[[Functional tests]] [[TDD workflow]]'
+    parse_wiki_link(md)
