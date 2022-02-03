@@ -14,3 +14,6 @@ def note_view(request, book_title, note_title):
         markdown = f.read()
     html = mark_safe(parse_markdown(markdown))
     return render(request, 'note.html', {'note_html': html})
+
+def note_not_found_view(request, note_title):
+    return render(request, 'note_not_found.html', {'note_title': note_title})

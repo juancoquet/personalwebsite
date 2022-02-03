@@ -1,4 +1,4 @@
-from unittest import TestCase, result
+from unittest import TestCase
 from unittest import skip
 
 from .. import parse_md
@@ -389,19 +389,31 @@ class MarkdownParseTest(TestCase):
 
     def test_parse_wiki_link(self):
         text = 'this links to the [[Functional tests]] note'
-        result = parse_md.parse_wiki_link(text)
-        expected = '''this links to the <a href="{% url 'note' '''\
-            '''book_title='Test Driven Development with Python' '''\
-            '''note_title='Functional tests' %}">Functional tests</a> note'''
+        result = parse_md.parse_wiki_links(text).replace('%20', ' ')
+        expected = 'this links to the <a href="/books/Test Driven Development with Python/'\
+            'Functional tests/">Functional tests</a> note'
         self.assertEqual(result, expected)
 
     def test_parse_multiple_wiki_links(self):
         text = '[[Functional tests]] [[TDD workflow]]'
-        result = parse_md.parse_wiki_link(text)
-        expected = '''<a href="{% url 'note' '''\
-            '''book_title='Test Driven Development with Python' '''\
-            '''note_title='Functional tests' %}">Functional tests</a> '''\
-            '''<a href="{% url 'note' '''\
-            '''book_title='Test Driven Development with Python' '''\
-            '''note_title='TDD workflow' %}">TDD workflow</a>'''
+        result = parse_md.parse_wiki_links(text).replace('%20', ' ')
+        expected = '<a href="/books/Test Driven Development with Python/Functional tests/">Functional tests</a> '\
+            '<a href="/books/Test Driven Development with Python/TDD workflow/">TDD workflow</a>'
         self.assertEqual(result, expected)
+
+    @skip
+    def test_link_to_note_not_found(self):
+        self.fail()
+
+    @skip
+    def test_parse_wiki_link_alias(self):
+        self.fail()
+
+    @skip
+    def test_parse_wiki_links_case_insensitive(self):
+        self.fail()
+
+    @skip
+    def test_parse_wiki_links_does_not_link_to_embedded_img(self):
+        # see TDD wordflow note
+        self.fail()

@@ -110,7 +110,8 @@ button {
 
 a {
     text-decoration: none;
-    color: var(--col-cream);
+    /* color: var(--col-cream); */
+    color: var(--col-accent);
 }
 
 .content-width {

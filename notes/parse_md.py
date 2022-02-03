@@ -1,9 +1,11 @@
+from django.urls import reverse
 import os
 import re
 
 
 def parse_markdown(markdown):
     markdown = replace_special_characters(markdown)
+    markdown = parse_wiki_links(markdown)
     markdown = parse_h1(markdown)
     markdown = parse_h2(markdown)
     markdown = parse_h3(markdown)
@@ -11,12 +13,12 @@ def parse_markdown(markdown):
     markdown = parse_h5(markdown)
     markdown = parse_h6(markdown)
     markdown = parse_p(markdown)
-    markdown = parse_inline_code(markdown)
     markdown = parse_bold(markdown)
     markdown = parse_italic(markdown)
     markdown = parse_hr(markdown)
     markdown = parse_ul(markdown)
     markdown = parse_ol(markdown)
+    markdown = parse_inline_code(markdown)
     markdown = parse_code_block(markdown) # keep this at the end
     return markdown
 
@@ -130,33 +132,23 @@ def parse_ol(markdown):
     replaced = li.sub(r'<li>\2</li>', replaced)
     return replaced
 
-def parse_wiki_link(markdown):
+def parse_wiki_links(markdown):
     wiki_link = re.compile(r'\[\[(?P<note_title>.+?)\]\]')
     linked_notes = wiki_link.finditer(markdown)
     for note in linked_notes:
         title = note.group('note_title')
         source = locate_note_source(title)
         if source:
-            html = f"""<a href="{{% url 'note' book_title='{source}' note_title='{title}' %}}">{title}</a>"""
-            markdown = wiki_link.sub(html, markdown, 1)
-    return markdown
-    
-    
-    # note_title = wiki_link.search(markdown).group('note_title')
-    # source = locate_note_source(note_title)
-    # if source is not None:
-    #     html = f"""<a href="{{% url 'note' book_title='{source}' note_title='{note_title}' %}}">{note_title}</a>"""
-    #     replaced = wiki_link.sub(html, markdown)
-    #     return replaced
-    # else:
-    #     return markdown
-                
+            url = reverse('note', kwargs={'note_title': title, 'book_title': source})
+        else:
+            url = reverse('note_not_found', kwargs={'note_title': title})
+        html = f"""<a href="{url}">{title}</a>"""
+        markdown = wiki_link.sub(html, markdown, 1)
+
+    return markdown                
 
 def locate_note_source(note_title):
-    try:
-        os.chdir('notes/markdown')
-    except FileNotFoundError:   # already in markdown dir
-        pass
+    os.chdir('notes/markdown')
     note_title += '.md'
     source = None
     for curr_path, dirs, files in os.walk('.'):
@@ -164,11 +156,10 @@ def locate_note_source(note_title):
             if file == note_title:
                 source = curr_path.split('/')[1]
                 break
+    os.chdir('../..')
     return source
-                
-
 
 
 if __name__ == '__main__':
     md = 'note that links to [[Functional tests]] and then to [[TDD workflow]]'
-    print(parse_wiki_link(md))
+    print(parse_wiki_links(md))
