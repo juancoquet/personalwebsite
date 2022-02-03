@@ -1,4 +1,3 @@
-from cgitb import html
 import os
 import re
 
@@ -133,20 +132,32 @@ def parse_ol(markdown):
 
 def parse_wiki_link(markdown):
     wiki_link = re.compile(r'\[\[(?P<note_title>.+?)\]\]')
-    note_title = wiki_link.search(markdown).group('note_title')
-    print(note_title)
-    source = locate_note_source(note_title)
-    if source is not None:
-        html = f"""<a href="{{% url 'note' book_title='{source}' note_title='{note_title}' %}}">{note_title}</a>"""
-        replaced = wiki_link.sub(html, markdown)
-        return replaced
-    else:
-        return markdown
+    linked_notes = wiki_link.finditer(markdown)
+    for note in linked_notes:
+        title = note.group('note_title')
+        source = locate_note_source(title)
+        if source:
+            html = f"""<a href="{{% url 'note' book_title='{source}' note_title='{title}' %}}">{title}</a>"""
+            markdown = wiki_link.sub(html, markdown, 1)
+    return markdown
+    
+    
+    # note_title = wiki_link.search(markdown).group('note_title')
+    # source = locate_note_source(note_title)
+    # if source is not None:
+    #     html = f"""<a href="{{% url 'note' book_title='{source}' note_title='{note_title}' %}}">{note_title}</a>"""
+    #     replaced = wiki_link.sub(html, markdown)
+    #     return replaced
+    # else:
+    #     return markdown
                 
 
 def locate_note_source(note_title):
+    try:
+        os.chdir('notes/markdown')
+    except FileNotFoundError:   # already in markdown dir
+        pass
     note_title += '.md'
-    os.chdir('notes/markdown')
     source = None
     for curr_path, dirs, files in os.walk('.'):
         for file in files:
@@ -159,5 +170,5 @@ def locate_note_source(note_title):
 
 
 if __name__ == '__main__':
-    md = '[[Functional tests]] [[TDD workflow]]'
-    parse_wiki_link(md)
+    md = 'note that links to [[Functional tests]] and then to [[TDD workflow]]'
+    print(parse_wiki_link(md))
