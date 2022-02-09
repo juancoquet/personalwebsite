@@ -1,3 +1,4 @@
+from django.urls import reverse
 from unittest import TestCase
 from unittest import skip
 
@@ -401,19 +402,46 @@ class MarkdownParseTest(TestCase):
             '<a href="/books/Test Driven Development with Python/TDD workflow/">TDD workflow</a>'
         self.assertEqual(result, expected)
 
-    @skip
-    def test_link_to_note_not_found(self):
-        self.fail()
+    def test_link_to_note_not_found_links_to_note_not_found_page(self):
+        text = "this note [[doesn't exist]]"
+        result = parse_md.parse_wiki_links(text)
+        url = reverse('note_not_found', kwargs={'note_title': 'doesn\'t exist'})
+        expected = f"""this note <a href="{url}">doesn't exist</a>"""
+        self.assertEqual(result, expected)
 
-    @skip
     def test_parse_wiki_link_alias(self):
-        self.fail()
+        text = 'this note has an alias [[TDD workflow|alias name]]'
+        result = parse_md.parse_wiki_links(text)
+        url = reverse('note', kwargs={'note_title': 'TDD workflow',
+        'book_title': 'Test Driven Development with Python'})
+        expected = f"this note has an alias <a href='{url}'>alias name</a>"
+        self.assertEqual(result, expected)
 
-    @skip
+
     def test_parse_wiki_links_case_insensitive(self):
-        self.fail()
+        text = "[[tdd workflow]]"
+        result = parse_md.parse_wiki_links(text)
+        expected_url = reverse('note', kwargs={'note_title': 'TDD workflow',
+        'book_title': 'Test Driven Development with Python'})
+        expected = f"<a href='{expected_url}'>tdd workflow</a>"
+        self.assertEqual(result, expected)
 
     @skip
     def test_parse_wiki_links_does_not_link_to_embedded_img(self):
         # see TDD wordflow note
         self.fail()
+
+    @skip
+    def test_remove_permanotes(self):
+        text = 'some text\n### See also\n- [[TDD workflow]]\n\n'\
+        '### Permanotes\n- [[another note]]'
+        result = parse_md.remove_permanotes(text)
+        expected = 'some text\n### See also\n- [[TDD workflow]]'
+        self.assertEqual(result, expected)
+
+    @skip
+    def test_remove_frontmatter(self):
+        text = '---\naliases: []\nDate: 2022-02-09\n---\n# note title\ntext'
+        result = parse_md.remove_frontmatter(text)
+        expected = '# note title\ntext'
+        self.assertEqual(result, expected)
