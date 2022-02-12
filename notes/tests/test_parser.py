@@ -417,13 +417,12 @@ class MarkdownParseTest(TestCase):
         expected = f'this note has an alias <a href="{url}">alias name</a>'
         self.assertEqual(result, expected)
 
-    @skip
     def test_parse_wiki_links_case_insensitive(self):
         text = "[[tdd workflow]]"
         result = parse_md.parse_wiki_links(text)
         expected_url = reverse('note', kwargs={'note_title': 'TDD workflow',
         'book_title': 'Test Driven Development with Python'})
-        expected = f"<a href='{expected_url}'>tdd workflow</a>"
+        expected = f'<a href="{expected_url}">tdd workflow</a>'
         self.assertEqual(result, expected)
 
     @skip

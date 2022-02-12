@@ -138,9 +138,9 @@ def parse_wiki_links(markdown):
     for link in linked_notes:
         title = link.group('note_title')
         alias = link.group('alias')
-        source = locate_note_source(title)
+        source, file_name = locate_note_source(title)
         if source:
-            url = reverse('note', kwargs={'note_title': title, 'book_title': source})
+            url = reverse('note', kwargs={'note_title': file_name, 'book_title': source})
         else:
             url = reverse('note_not_found', kwargs={'note_title': title})
         if alias:
@@ -155,13 +155,15 @@ def locate_note_source(note_title):
     os.chdir('notes/markdown')
     note_title += '.md'
     source = None
+    file_name = None
     for curr_path, dirs, files in os.walk('.'):
         for file in files:
-            if file == note_title:
+            if file.lower() == note_title.lower():
                 source = curr_path.split('/')[1]
+                file_name = file.replace('.md', '')
                 break
     os.chdir('../..')
-    return source
+    return source, file_name
 
 
 if __name__ == '__main__':
