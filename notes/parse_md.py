@@ -133,16 +133,20 @@ def parse_ol(markdown):
     return replaced
 
 def parse_wiki_links(markdown):
-    wiki_link = re.compile(r'\[\[(?P<note_title>.+?)\]\]')
+    wiki_link = re.compile(r'\[\[(?P<note_title>.+?)(\|(?P<alias>.+?))?\]\]')
     linked_notes = wiki_link.finditer(markdown)
-    for note in linked_notes:
-        title = note.group('note_title')
+    for link in linked_notes:
+        title = link.group('note_title')
+        alias = link.group('alias')
         source = locate_note_source(title)
         if source:
             url = reverse('note', kwargs={'note_title': title, 'book_title': source})
         else:
             url = reverse('note_not_found', kwargs={'note_title': title})
-        html = f"""<a href="{url}">{title}</a>"""
+        if alias:
+            html = f'<a href="{url}">{alias}</a>'
+        else:
+            html = f"""<a href="{url}">{title}</a>"""
         markdown = wiki_link.sub(html, markdown, 1)
 
     return markdown                
