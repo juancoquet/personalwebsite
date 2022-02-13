@@ -425,10 +425,33 @@ class MarkdownParseTest(TestCase):
         expected = f'<a href="{expected_url}">tdd workflow</a>'
         self.assertEqual(result, expected)
 
+    def test_parse_image_embed(self):
+        text = 'some text\n![alt text](http://www.example.com/path/to/img.jpg)\nmore text'
+        result = parse_md.parse_image(text)
+        expected = 'some text\n<img src="http://www.example.com/path/to/img.jpg" alt="alt text">\nmore text'
+        self.assertEqual(result, expected)
+
+    def test_parse_multiple_image_embed(self):
+        text = 'some text\n![alt text](http://www.example.com/path/to/img.jpg)\nmore text\n![alt text 2](http://www.example2.com/path/to/img2.jpg)'
+        result = parse_md.parse_image(text)
+        expected = 'some text\n<img src="http://www.example.com/path/to/img.jpg" alt="alt text">\nmore text\n'\
+            '<img src="http://www.example2.com/path/to/img2.jpg" alt="alt text 2">'
+        self.assertEqual(result, expected)
+
+    def test_parse_image_from_file_path(self):
+        text = 'some text\n![tdd workflow](tdd-workflow.png)\nmore text'
+        result = parse_md.parse_image(text)
+        expected = 'some text\n<img src="/static/img/notes/tdd-workflow.png" '\
+            'alt="tdd workflow">\nmore text'
+        self.assertEqual(result, expected)
+
     @skip
-    def test_parse_wiki_links_does_not_link_to_embedded_img(self):
-        # see TDD wordflow note
+    def test_parse_image_from_static_folder(self):
         self.fail()
+
+    @skip
+    def test_remove_note_type(self):
+        pass
 
     @skip
     def test_remove_permanotes(self):

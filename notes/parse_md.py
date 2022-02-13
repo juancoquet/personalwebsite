@@ -1,3 +1,4 @@
+from django.templatetags.static import static
 from django.urls import reverse
 import os
 import re
@@ -19,6 +20,7 @@ def parse_markdown(markdown):
     markdown = parse_ul(markdown)
     markdown = parse_ol(markdown)
     markdown = parse_inline_code(markdown)
+    markdown = parse_image(markdown)
     markdown = parse_code_block(markdown) # keep this at the end
     return markdown
 
@@ -165,7 +167,24 @@ def locate_note_source(note_title):
     os.chdir('../..')
     return source, file_name
 
+def parse_image(markdown):
+    image = re.compile(r'\!\[(?P<alt>.+?)\]\((?P<url>.+?)\)')
+    image_links = image.finditer(markdown)
+    for link in image_links:
+        alt = link.group('alt')
+        url = link.group('url')
+        if not url.startswith('http'):
+            url = create_static_path(url)
+        html = f"""<img src="{url}" alt="{alt}">"""
+        markdown = image.sub(html, markdown, 1)
+    return markdown
+
+def create_static_path(image_name):
+    url = '/static/img/notes/' + image_name
+    return url
+
+
 
 if __name__ == '__main__':
-    md = 'note that links to [[Functional tests]] and then to [[TDD workflow]]'
-    print(parse_wiki_links(md))
+    text = 'note with image\n![tdd workflow](tdd-workflow.png)\nthen more text'
+    print(parse_image(text))

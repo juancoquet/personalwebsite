@@ -11,6 +11,7 @@ url('/foo/', some_view, name='url_name')
 The name attribute `'url_name'` can be used by both templates (such as using the name instead of hardcoding the URL as a `href` attribute) and by the `reverse()` function. When the `reverse()` function is called with `url_name` as its argument, the URL `'/foo/'` will be returned.This can be used in *views.py* to redirect the user:
 ```python
 # views.py
+from django.urls import reverse
 from django.shortcuts import redirect
 
 def some_view(request):

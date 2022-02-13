@@ -10,7 +10,7 @@ Source: [[📖 Test Driven Development with Python]] ch3 p22
 
 You can think of unit tests as being nested inside functional tests. First you write some functional tests and watch them fail. Then you write some unit tests to advance the functional tests and watch them fail. Now you can start writing production code, to advance the unit tests. As unit tests advance, you can once again check your functional tests, and keep adding functional tests and/or unit tests as needed.
 
-![[Screenshot 2021-05-09 at 21.55.13.png]]
+![tdd workflow](tdd-workflow.png)
 
 ---
 ### See also:
