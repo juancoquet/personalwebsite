@@ -453,7 +453,6 @@ class MarkdownParseTest(TestCase):
     def test_remove_note_type(self):
         pass
 
-    @skip
     def test_remove_permanotes(self):
         text = 'some text\n### See also\n- [[TDD workflow]]\n\n'\
         '### Permanotes\n- [[another note]]'

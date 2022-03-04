@@ -151,7 +151,12 @@ def parse_wiki_links(markdown):
             html = f"""<a href="{url}">{title}</a>"""
         markdown = wiki_link.sub(html, markdown, 1)
 
-    return markdown                
+    return markdown
+
+def remove_permanotes(markdown):
+    permanotes = re.compile(r'^#+\sPermanotes\s?$', re.MULTILINE|re.IGNORECASE)
+    markdown = permanotes.split(markdown)
+    return markdown[0].strip()
 
 def locate_note_source(note_title):
     os.chdir('notes/markdown')
@@ -186,5 +191,6 @@ def create_static_path(image_name):
 
 
 if __name__ == '__main__':
-    text = 'note with image\n![tdd workflow](tdd-workflow.png)\nthen more text'
-    print(parse_image(text))
+    text = 'some text\n### See also\n- [[TDD workflow]]\n\n'\
+        '### Permanotes\n- [[link to perma note]]'
+    print(remove_permanotes(text))
