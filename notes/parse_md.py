@@ -158,6 +158,11 @@ def remove_permanotes(markdown):
     markdown = permanotes.split(markdown)
     return markdown[0].strip()
 
+def remove_frontmatter(markdown):
+    front_matter = re.compile(r'^---\n(.+?)\n---\n', re.DOTALL)
+    markdown = front_matter.sub('', markdown)
+    return markdown
+
 def locate_note_source(note_title):
     os.chdir('notes/markdown')
     note_title += '.md'
@@ -191,6 +196,5 @@ def create_static_path(image_name):
 
 
 if __name__ == '__main__':
-    text = 'some text\n### See also\n- [[TDD workflow]]\n\n'\
-        '### Permanotes\n- [[link to perma note]]'
-    print(remove_permanotes(text))
+    text = '---\nfrontmatter: stuff\n---\nbody'
+    print(remove_frontmatter(text))

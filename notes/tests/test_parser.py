@@ -455,14 +455,19 @@ class MarkdownParseTest(TestCase):
 
     def test_remove_permanotes(self):
         text = 'some text\n### See also\n- [[TDD workflow]]\n\n'\
-        '### Permanotes\n- [[another note]]'
+        '### permanotes\n- [[another note]]'
         result = parse_md.remove_permanotes(text)
         expected = 'some text\n### See also\n- [[TDD workflow]]'
         self.assertEqual(result, expected)
 
-    @skip
     def test_remove_frontmatter(self):
         text = '---\naliases: []\nDate: 2022-02-09\n---\n# note title\ntext'
         result = parse_md.remove_frontmatter(text)
         expected = '# note title\ntext'
+        self.assertEqual(result, expected)
+
+    def test_remove_frontmatter_does_not_remove_note_body(self):
+        text = 'note type: #litnote\n---\n# heading\ntext\n\n---\n# see also\n- [[another note]]'
+        result = parse_md.remove_frontmatter(text)
+        expected = text
         self.assertEqual(result, expected)
