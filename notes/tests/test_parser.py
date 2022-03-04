@@ -452,7 +452,7 @@ class MarkdownParseTest(TestCase):
     def test_remove_note_type(self):
         text = 'Note type: #litnote\n\n---\nnote body'
         result = parse_md.remove_note_type(text)
-        expected = '\n---\nnote body'
+        expected = '\n\n---\nnote body'
         self.assertEqual(result, expected)
 
     def test_remove_permanotes(self):

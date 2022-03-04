@@ -5,6 +5,9 @@ import re
 
 
 def parse_markdown(markdown):
+    markdown = remove_frontmatter(markdown)
+    markdown = remove_permanotes(markdown)
+    markdown = remove_note_type(markdown)
     markdown = replace_special_characters(markdown)
     markdown = parse_wiki_links(markdown)
     markdown = parse_h1(markdown)
@@ -154,7 +157,7 @@ def parse_wiki_links(markdown):
     return markdown
 
 def remove_permanotes(markdown):
-    permanotes = re.compile(r'^#+\sPermanotes\s?$', re.MULTILINE|re.IGNORECASE)
+    permanotes = re.compile(r'^#+\sPermanotes$', re.MULTILINE|re.IGNORECASE)
     markdown = permanotes.split(markdown)
     return markdown[0].strip()
 
@@ -164,7 +167,7 @@ def remove_frontmatter(markdown):
     return markdown
 
 def remove_note_type(markdown):
-    note_type = re.compile(r'^note type:\s#.+?\n$', re.MULTILINE|re.IGNORECASE)
+    note_type = re.compile(r'^note type:\s#.+?$', re.MULTILINE|re.IGNORECASE)
     markdown = note_type.sub('', markdown)
     return markdown
 
