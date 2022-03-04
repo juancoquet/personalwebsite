@@ -163,6 +163,11 @@ def remove_frontmatter(markdown):
     markdown = front_matter.sub('', markdown)
     return markdown
 
+def remove_note_type(markdown):
+    note_type = re.compile(r'^note type:\s#.+?\n$', re.MULTILINE|re.IGNORECASE)
+    markdown = note_type.sub('', markdown)
+    return markdown
+
 def locate_note_source(note_title):
     os.chdir('notes/markdown')
     note_title += '.md'
@@ -196,5 +201,5 @@ def create_static_path(image_name):
 
 
 if __name__ == '__main__':
-    text = '---\nfrontmatter: stuff\n---\nbody'
-    print(remove_frontmatter(text))
+    text = 'Note type: #litnote\n\n---\nbody'
+    print(remove_note_type(text))
