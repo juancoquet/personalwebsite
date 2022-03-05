@@ -473,3 +473,21 @@ class MarkdownParseTest(TestCase):
         result = parse_md.remove_frontmatter(text)
         expected = text
         self.assertEqual(result, expected)
+
+    def test_parse_inline_tex(self):
+        text = 'some text that has inline tex $a+b=2^c$'
+        result = parse_md.parse_inline_tex(text)
+        expected = 'some text that has inline tex \(a+b=2^c\)'
+        self.assertEqual(result, expected)
+
+    def test_parse_inline_tex_does_not_parse_tex_block(self):
+        text = 'should not parse tex block\n\n$$a+b=2^c$$'
+        result = parse_md.parse_inline_tex(text)
+        expected = text
+        self.assertEqual(result, expected)
+
+    def test_remove_br(self):
+        text = 'some text\n\n<br>\nmore text'
+        result = parse_md.remove_br(text)
+        expected = 'some text\n\n\nmore text'
+        self.assertEqual(result, expected)

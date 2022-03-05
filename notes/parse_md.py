@@ -8,6 +8,7 @@ def parse_markdown(markdown):
     markdown = remove_frontmatter(markdown)
     markdown = remove_permanotes(markdown)
     markdown = remove_note_type(markdown)
+    markdown = remove_br(markdown)
     markdown = replace_special_characters(markdown)
     markdown = parse_wiki_links(markdown)
     markdown = parse_h1(markdown)
@@ -24,6 +25,7 @@ def parse_markdown(markdown):
     markdown = parse_ol(markdown)
     markdown = parse_inline_code(markdown)
     markdown = parse_image(markdown)
+    markdown = parse_inline_tex(markdown)
     markdown = parse_code_block(markdown) # keep this at the end
     return markdown
 
@@ -156,6 +158,12 @@ def parse_wiki_links(markdown):
 
     return markdown
 
+def parse_inline_tex(markdown):
+    tex = re.compile(r'(?<!\$)\$(?!\$)(?P<tex>.+?)(?<!\$)\$(?!\$)')
+    replaced = tex.sub(r'\\(\g<tex>\\)', markdown)
+    return replaced
+
+
 def remove_permanotes(markdown):
     permanotes = re.compile(r'^#+\sPermanotes$', re.MULTILINE|re.IGNORECASE)
     markdown = permanotes.split(markdown)
@@ -169,6 +177,11 @@ def remove_frontmatter(markdown):
 def remove_note_type(markdown):
     note_type = re.compile(r'^note type:\s#.+?$', re.MULTILINE|re.IGNORECASE)
     markdown = note_type.sub('', markdown)
+    return markdown
+
+def remove_br(markdown):
+    br = re.compile(r'<br>')
+    markdown = br.sub('', markdown)
     return markdown
 
 def locate_note_source(note_title):
@@ -204,5 +217,5 @@ def create_static_path(image_name):
 
 
 if __name__ == '__main__':
-    text = 'Note type: #litnote\n\n---\nbody'
-    print(remove_note_type(text))
+    text = 'some text that has tex block\n$$a+b=2^c$$'
+    print(parse_inline_tex(text))
