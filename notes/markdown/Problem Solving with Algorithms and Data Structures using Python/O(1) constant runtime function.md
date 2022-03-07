@@ -9,8 +9,6 @@ A constant runtime function is when an algorithms takes the same amount of time 
 As a toy example, here is a function that simply adds 1 to an input **n**. The runtime remains the same regardless of how big **n** becomes.
 
 ```python
-
 def add_one(n):
 	return n + 1
-
 ```

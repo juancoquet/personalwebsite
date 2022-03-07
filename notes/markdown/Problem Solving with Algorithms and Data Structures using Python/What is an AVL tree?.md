@@ -17,6 +17,6 @@ An acceptable balance range needs to be specified – a threshold value for the 
 
 The following diagram shows the most unbalanced, but allowable, left-biased trees of heights 0, 1, 2, and 3, as specified by the above balance factor range:
 
-![../_images/worstAVL.png](https://runestone.academy/ns/books/published/pythonds/_images/worstAVL.png)
+![worst avl](https://runestone.academy/ns/books/published/pythonds/_images/worstAVL.png)
 
 In each case, the tree has a balance factor of 1 as the left sub-tree is has one more height level than the right. If another node is added to the far-left of the tree in any of the examples above, it would breach the allowed range and the tree would need rebalancing, which we achieve through [[Rebalancing a tree with rotations|tree rotations]].

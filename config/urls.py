@@ -19,6 +19,6 @@ from django.urls.conf import include
 
 urlpatterns = [
     path('jc-admin/', admin.site.urls),
-    path('books/', include('notes.urls')),
+    path('notes/', include('notes.urls')),
     path('', include('home.urls')),
 ]

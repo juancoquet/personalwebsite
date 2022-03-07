@@ -449,6 +449,10 @@ class MarkdownParseTest(TestCase):
     def test_parse_image_from_static_folder(self):
         self.fail()
 
+    def test_parse_image_file_embed(self):
+        text = 'some text\n![[tdd-workflow.png]]'
+        self.fail('not implemented')
+
     def test_remove_note_type(self):
         text = 'Note type: #litnote\n\n---\nnote body'
         result = parse_md.remove_note_type(text)

@@ -15,7 +15,7 @@ The diagram below illustrates a graph with three strongly connected components, 
 
 ![scc](https://runestone.academy/ns/books/published/pythonds/_images/scc1.png)
 
-Take the left SCC as an example. If we pick to random vertices, say $A$ and $G$, we can follow a path from one to the other in either direction – $\{A, B, E, D, G\}$ and $\{G, E, A\}$. This kind of relationship exists between any two vertices within a strongly connected component.
+Take the left SCC as an example. If we pick two random vertices, say $A$ and $G$, we can follow a path from one to the other in either direction – $\{A, B, E, D, G\}$ and $\{G, E, A\}$. This kind of relationship exists between any two vertices within a strongly connected component.
 
 With the strongly connected components of a graph identified, an abstracted, reduced version of the graph can be considered like so:
 

@@ -1,4 +1,3 @@
-from unicodedata import name
 from django.shortcuts import render
 from django.utils.safestring import mark_safe
 
@@ -6,7 +5,7 @@ from django.utils.safestring import mark_safe
 from .parse_md import parse_markdown
 
 
-def library_view(request):
+def notes_library_view(request):
     return render(request, 'library.html')
 
 def note_view(request, book_title, note_title):
