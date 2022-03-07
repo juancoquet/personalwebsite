@@ -147,7 +147,7 @@ def parse_wiki_links(markdown):
         alias = link.group('alias')
         source, file_name = locate_note_source(title)
         if source:
-            url = reverse('note', kwargs={'note_title': file_name, 'book_title': source})
+            url = reverse('note', kwargs={'note_title': file_name, 'source_title': source})
         else:
             url = reverse('note_not_found', kwargs={'note_title': title})
         if alias:

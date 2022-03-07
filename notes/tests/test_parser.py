@@ -391,15 +391,15 @@ class MarkdownParseTest(TestCase):
     def test_parse_wiki_link(self):
         text = 'this links to the [[Functional tests]] note'
         result = parse_md.parse_wiki_links(text).replace('%20', ' ')
-        expected = 'this links to the <a href="/books/Test Driven Development with Python/'\
+        expected = 'this links to the <a href="/notes/Test Driven Development with Python/'\
             'Functional tests/">Functional tests</a> note'
         self.assertEqual(result, expected)
 
     def test_parse_multiple_wiki_links(self):
         text = '[[Functional tests]] [[TDD workflow]]'
         result = parse_md.parse_wiki_links(text).replace('%20', ' ')
-        expected = '<a href="/books/Test Driven Development with Python/Functional tests/">Functional tests</a> '\
-            '<a href="/books/Test Driven Development with Python/TDD workflow/">TDD workflow</a>'
+        expected = '<a href="/notes/Test Driven Development with Python/Functional tests/">Functional tests</a> '\
+            '<a href="/notes/Test Driven Development with Python/TDD workflow/">TDD workflow</a>'
         self.assertEqual(result, expected)
 
     def test_link_to_note_not_found_links_to_note_not_found_page(self):
@@ -413,7 +413,7 @@ class MarkdownParseTest(TestCase):
         text = 'this note has an alias [[TDD workflow|alias name]]'
         result = parse_md.parse_wiki_links(text)
         url = reverse('note', kwargs={'note_title': 'TDD workflow',
-        'book_title': 'Test Driven Development with Python'})
+        'source_title': 'Test Driven Development with Python'})
         expected = f'this note has an alias <a href="{url}">alias name</a>'
         self.assertEqual(result, expected)
 
@@ -421,7 +421,7 @@ class MarkdownParseTest(TestCase):
         text = "[[tdd workflow]]"
         result = parse_md.parse_wiki_links(text)
         expected_url = reverse('note', kwargs={'note_title': 'TDD workflow',
-        'book_title': 'Test Driven Development with Python'})
+        'source_title': 'Test Driven Development with Python'})
         expected = f'<a href="{expected_url}">tdd workflow</a>'
         self.assertEqual(result, expected)
 
@@ -449,6 +449,7 @@ class MarkdownParseTest(TestCase):
     def test_parse_image_from_static_folder(self):
         self.fail()
 
+    @skip
     def test_parse_image_file_embed(self):
         text = 'some text\n![[tdd-workflow.png]]'
         self.fail('not implemented')
