@@ -425,6 +425,12 @@ class MarkdownParseTest(TestCase):
         expected = f'<a href="{expected_url}">tdd workflow</a>'
         self.assertEqual(result, expected)
 
+    def test_parse_wiki_links_does_not_parse_image_embeds(self):
+        text = '![[an_image.png]]'
+        result = parse_md.parse_wiki_links(text)
+        expected = text
+        self.assertEqual(result, expected)
+
     def test_parse_image_embed(self):
         text = 'some text\n![alt text](http://www.example.com/path/to/img.jpg)\nmore text'
         result = parse_md.parse_image(text)
@@ -449,10 +455,11 @@ class MarkdownParseTest(TestCase):
     def test_parse_image_from_static_folder(self):
         self.fail()
 
-    @skip
     def test_parse_image_file_embed(self):
-        text = 'some text\n![[tdd-workflow.png]]'
-        self.fail('not implemented')
+        text = "some text\n![[tdd-workflow.png]]"
+        result = parse_md.parse_image(text)
+        expected = 'some text\n<img src="/static/img/notes/tdd-workflow.png">'
+        self.assertEqual(result, expected)
 
     def test_remove_note_type(self):
         text = 'Note type: #litnote\n\n---\nnote body'

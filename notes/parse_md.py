@@ -140,7 +140,7 @@ def parse_ol(markdown):
     return replaced
 
 def parse_wiki_links(markdown):
-    wiki_link = re.compile(r'\[\[(?P<note_title>.+?)(\|(?P<alias>.+?))?\]\]')
+    wiki_link = re.compile(r'(?<!!)\[\[(?P<note_title>.+?)(\|(?P<alias>.+?))?\]\]')
     linked_notes = wiki_link.finditer(markdown)
     for link in linked_notes:
         title = link.group('note_title')
@@ -208,10 +208,16 @@ def parse_image(markdown):
             url = create_static_path(url)
         html = f"""<img src="{url}" alt="{alt}">"""
         markdown = image.sub(html, markdown, 1)
+    image = re.compile(r'\!\[\[(?P<filename>.+?\..+?)\]\]')
+    image_embeds = image.finditer(markdown)
+    for embed in image_embeds:
+        url = create_static_path(embed.group('filename'))
+        html = f'<img src="{url}">'
+        markdown = image.sub(html, markdown, 1)
     return markdown
 
 def create_static_path(image_name):
-    url = '/static/img/notes/' + image_name
+    url = "/static/img/notes/" + image_name
     return url
 
 
