@@ -5,12 +5,53 @@
 <section class="section--bg-1">
   <div class="content-width">
     <h1>Notes</h1>
-    <p><a href="{% url 'note' source_title='Problem Solving with Algorithms and Data Structures using Python' note_title='📖 Problem Solving with Algorithms and Data Structures using Python' %}">
-      Problem Solving with Algorithms and Data Structures using Python
-    </a></p>
-    <p><a href="{% url 'note' source_title='Test Driven Development with Python' note_title='📖 Test Driven Development with Python' %}">
-      Test Driven Development with Python
-    </a></p>
+
+    <p>I like to take extensive notes on everything I read to enforce active thinking and facilitate learning. My process is similar to <a href="https://fs.blog/feynman-technique/" target="_blank">The Feynman Technique</a>, with additional linking and referencing between notes inspired by Niklas Luhmann's <a href="https://en.wikipedia.org/wiki/Zettelkasten" target="_blank">Zettelkasten</a> method. The goal is to improve my understanding of the things I read while developing an interlinked wiki of everything I learn.</p>
+
+    <p>My notes can be found below – this not an exhaustive list, only some of the notes taken since I began implementing this approach. Because of this, there may be some unresolved links to notes that I've not made public.</p>
+
+    <div class="preview-card book-card">
+      <a href="{% url 'note' source_title='21 Lessons for the 21st Century' note_title='📖 21 Lessons for the 21st Century' %}">
+        <img src="{% static 'img/covers/21-lessons.jpg' %}" alt="21 Lessons for the 21st Century by Yuval Noah Harari" class="book-cover">
+      </a>
+    </div>
+    
+    <div class="preview-card book-card">
+      <a href="{% url 'note' source_title='Django for Professionals' note_title='📖 Django for Professionals' %}">
+        <img src="{% static 'img/covers/django-for-pros.jpg' %}" alt="Django for professionals by William S. Vincent" class="book-cover">
+      </a>
+    </div>
+    
+    <div class="preview-card book-card">
+      <a href="{% url 'note' source_title='Effective Python' note_title='📖 Effective Python' %}">
+        <img src="{% static 'img/covers/effective-python.jpg' %}" alt="Effective Python by Brett Slatckin" class="book-cover">
+      </a>
+    </div>
+    
+    <div class="preview-card book-card">
+      <a href="{% url 'note' source_title='How to Take Smart Notes' note_title='📖 How to Take Smart Notes' %}">
+        <img src="{% static 'img/covers/smart-notes.jpg' %}" alt="How to take smart notes by Sönke Ahrens" class="book-cover">
+      </a>
+    </div>
+
+    <div class="preview-card book-card">
+      <a href="{% url 'note' source_title='Problem Solving with Algorithms and Data Structures using Python' note_title='📖 Problem Solving with Algorithms and Data Structures using Python' %}">
+        <img src="{% static 'img/covers/problem-solving.jpg' %}" alt="problem solving with algorithms and data strucutres by brandley miller and david ranum" class="book-cover">
+      </a>
+    </div>
+    
+    <div class="preview-card book-card">
+      <a href="{% url 'note' source_title='Python Cookbook' note_title='📖 Python Cookbook' %}">
+        <img src="{% static 'img/covers/python-cookbook.jpg' %}" alt="Python Cookbook by David Beazley and Brian K. Jones" class="book-cover">
+      </a>
+    </div>
+
+    <div class="preview-card book-card">
+      <a href="{% url 'note' source_title='Test Driven Development with Python' note_title='📖 Test Driven Development with Python' %}">
+        <img src="{% static 'img/covers/tdd-with-python.jpg' %}" alt="test-driven development with python by Harry J.W. Percival" class="book-cover">
+      </a>
+    </div>
+
   </div>
 </section>
 {% endblock content %}

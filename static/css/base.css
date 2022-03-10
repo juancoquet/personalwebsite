@@ -357,6 +357,10 @@ nav {
     margin-top: 0;
 }
 
+.preview-card.book-card {
+    max-width: 300px;
+}
+
 .card__content {
     padding: 0 0.8rem;
 }
@@ -380,7 +384,8 @@ nav {
 }
 
 .site-demo,
-.music-clip {
+.music-clip,
+.book-cover {
     width: 100%;
     max-width: var(--vid-max-width);
     border-bottom: 1px solid var(--col-accent);
@@ -439,7 +444,8 @@ nav {
 }
 
 .media__video,
-.media__photo {
+.media__photo,
+.book-cover {
     width: 100%;
     display: block;
     border-radius: 2px;

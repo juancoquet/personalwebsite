@@ -132,3 +132,4 @@ dmypy.json
 .pyre/
 static/.DS_Store
 .gitignore
+static/img/.DS_Store

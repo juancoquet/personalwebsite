@@ -7,7 +7,7 @@ Source: [[📖 Problem Solving with Algorithms and Data Structures using Python]
 
 ---
 # What is a graph?
-A graph is a datatype similar to a tree – it has nodes (also called 'vertices') and edges that connect them, like a tree. Where they differ is that the edges of a graph can be bidirectional (but aren't always) and graphs do not have a top-down structure. Additionally, the edges of a graph can have an associated **weight**, which can be though of as the cost of moving along a particular edge. When all the edges in a graph are one-way, we call this a **directed graph** or **digraph**.
+A graph is a datatype similar to a tree – it has nodes (also called 'vertices') and edges that connect them, like a tree. Where they differ is that the edges of a graph can be bidirectional (but aren't always) and graphs do not have a top-down structure. Additionally, the edges of a graph can have an associated **weight**, which can be thought of as the cost of moving along a particular edge. When all the edges in a graph are one-way, we call this a **directed graph** or **digraph**.
 
 We can define a graph with the notation $G = (V, E)$, where $V$ is a set of vertices and $E$ is a set of edges that describe relationships between those vertices. Each edge in is a tuple consisting of two vertices $(v1, v2)$, where $v1, v2 \in V$ ($v1$ and $v2$ are members of set $V$). We can also add a third component to each edge, its weight value. A subgraph $s$ is a set of vertices $v$ and edges $e$ where $v \subset V$ and $e \subset E$ ($v$ is a subset of $V$ and $e$ is a subset of $E$).
 

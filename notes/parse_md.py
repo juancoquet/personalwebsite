@@ -165,7 +165,7 @@ def parse_inline_tex(markdown):
 
 
 def remove_permanotes(markdown):
-    permanotes = re.compile(r'^#+\sPermanotes$', re.MULTILINE|re.IGNORECASE)
+    permanotes = re.compile(r'^#+\sPermanotes:?$', re.MULTILINE|re.IGNORECASE)
     markdown = permanotes.split(markdown)
     return markdown[0].strip()
 
