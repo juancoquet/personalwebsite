@@ -357,10 +357,6 @@ nav {
     margin-top: 0;
 }
 
-.preview-card.book-card {
-    max-width: 300px;
-}
-
 .card__content {
     padding: 0 0.8rem;
 }
@@ -384,8 +380,7 @@ nav {
 }
 
 .site-demo,
-.music-clip,
-.book-cover {
+.music-clip {
     width: 100%;
     max-width: var(--vid-max-width);
     border-bottom: 1px solid var(--col-accent);
@@ -428,6 +423,48 @@ nav {
 
 
 /*---------------------------*\
+    #NOTES
+\*---------------------------*/
+.books-container {
+    flex-wrap: wrap;
+    padding: 0;
+    margin: 0 -0.8rem;
+}
+
+.preview-card.book-card {
+    width: 44%;
+    flex-shrink: 1;
+    margin: 1.2rem 0.8rem;
+}
+
+.book-cover {
+    max-height: 320px;
+    max-width: 100%;
+    object-fit: cover;
+}
+
+.book-cover.pos--center {
+    object-position: center;
+}
+
+.book-cover.pos--top {
+    object-position: top;
+}
+
+.book-cover.pos--bottom {
+    object-position: bottom;
+}
+
+@media screen and (min-width: 830px) {
+    .preview-card.book-card {
+        max-width: 250px;
+    }
+}
+
+
+
+
+/*---------------------------*\
     #MEDIA
 \*---------------------------*/
 
@@ -444,8 +481,7 @@ nav {
 }
 
 .media__video,
-.media__photo,
-.book-cover {
+.media__photo {
     width: 100%;
     display: block;
     border-radius: 2px;
