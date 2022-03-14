@@ -186,6 +186,7 @@ def remove_br(markdown):
 
 def locate_note_source(note_title):
     os.chdir('notes/markdown')
+    note_title = note_title.replace('&amp;', '&')
     note_title += '.md'
     source = None
     file_name = None
