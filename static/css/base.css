@@ -1,9 +1,82 @@
+@font-face {
+    font-family: 'Lemon Milk';
+    src: url('../fonts/LEMONMILK-Bold.otf') format('opentype');
+    font-weight: 700;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Lemon Milk';
+    src: url('../fonts/LEMONMILK-BoldItalic.otf') format('opentype');
+    font-weight: 700;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Lemon Milk';
+    src: url('../fonts/LEMONMILK-Light.otf') format('opentype');
+    font-weight: 100;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Lemon Milk';
+    src: url('../fonts/LEMONMILK-LightItalic.otf') format('opentype');
+    font-weight: 100;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Lemon Milk';
+    src: url('../fonts/LEMONMILK-Medium.otf') format('opentype');
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Lemon Milk';
+    src: url('../fonts/LEMONMILK-MediumItalic.otf') format('opentype');
+    font-weight: 500;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Lemon Milk';
+    src: url('../fonts/LEMONMILK-Regular.otf') format('opentype');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Lemon Milk';
+    src: url('../fonts/LEMONMILK-RegularItalic.otf') format('opentype');
+    font-weight: 400;
+    font-style: italic;
+}
+
+/* ------- */
+
+@font-face {
+    font-family: 'SF Movie Poster';
+    src: url('../fonts/SF Movie Poster Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+}
+
+
+
+
+
 /*---------------------------*\
     #BASE FORMATING
 \*---------------------------*/
 
 :root {
-    --col-cream: #FFFCF7;
+    --col-cream: #E7D9CB;
+    --col-blue: #9CA7AF;
+    --col-brown: #573F3A;
+    --col-light-shadow: #817165;
+    --col-dark-brown: #40352D;
 
     --col-navy: #1C354A;
     --col-navy-dark: #162A3B;
@@ -29,10 +102,10 @@
 /* themes */
 
 .code-theme {
-    --col-bg1: var(--col-navy);
+    --col-bg1: var(--col-cream);
     --col-bg2: var(--col-navy-dark);
-    --col-accent: var(--col--accent-purple);
-    --col-text: var(--col-cream);
+    --col-accent: var(--col-dark-brown);
+    --col-text: var(--col-dark-brown);
 }
 
 .music-theme {
@@ -55,15 +128,17 @@ html {
 }
 
 body {
-    background-color: var(--col-bg2);
+    background-color: var(--col-bg1);
     transition: 500ms ease-in-out;
 }
 
 h1,
 h2,
 h3 {
-    font-family: 'Playfair Display', serif;
+    font-family: 'SF Movie Poster', sans-serif;
     color: var(--col-text);
+    font-weight: 400;
+    letter-spacing: 0.1em;
 }
 
 h1 {
@@ -73,14 +148,14 @@ h1 {
 h2 {
     font-size: 3.2rem;
     margin-bottom: 3.2rem;
-    text-decoration: underline;
-    text-decoration-color: var(--col-accent);
+    /* text-decoration: underline; */
+    /* text-decoration-color: var(--col-dark); */
     text-decoration-thickness: 1px;
     text-underline-offset: 3px;
 }
 
 h3 {
-    font-size: 2rem;
+    font-size: 2.8rem;
     margin: 0.8rem 0;
     color: var(--col-text);
 }
@@ -89,7 +164,8 @@ p,
 span,
 li {
     font-size: 1.6rem;
-    font-family: 'Nunito', sans-serif;
+    line-height: 1.4;
+    font-family: 'Lato', sans-serif;
     color: var(--col-text);
 }
 
@@ -104,7 +180,7 @@ p {
 
 button {
     font-size: 1.6rem;
-    font-family: 'Nunito', sans-serif;
+    font-family: 'Lato', sans-serif;
     cursor: pointer;
 }
 
@@ -177,14 +253,20 @@ nav {
 }
 
 .nav__item {
-    font-family: 'Playfair Display', serif;
+    font-family: 'Lemon Milk', sans-serif;
+    font-weight: 400;
+    letter-spacing: 0.05em;
+    font-size: 1.6rem;
     color: var(--col-navy-dark);
     cursor: pointer;
 }
 
 .nav__contact {
-    font-family: 'Playfair Display', serif;
-    color: var(--col-navy-dark);
+    font-family: 'Lemon Milk', sans-serif;
+    font-weight: 400;
+    letter-spacing: 0.05em;
+    font-size: 1.6rem;
+    color: var(--col-text);
     border: 1px solid var(--col-navy-dark);
     border-radius: 2px;
     padding: 0.3rem 0.6rem;
@@ -209,8 +291,8 @@ nav {
 .hero {
     width: 100%;
     position: relative;
-    border-bottom: 1px solid var(--col-accent);
-    transition: 1500ms;
+    /* border-bottom: 1px solid var(--col-accent); */
+    transition: 500ms ease-in-out;
     display: flex;
     background-color: var(--col-bg1);
 }
@@ -226,28 +308,39 @@ nav {
 .hero__text {
     width: 100%;
     max-width: var(--max-width);
-    position: absolute;
+    /* position: absolute; */
     padding: 0 var(--side-padding);
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
+    /* left: 50%; */
+    /* top: 50%; */
+    /* transform: translate(-50%, -50%); */
     display: flex;
     flex-direction: column;
-    align-items: flex-end;
+    /* align-items: flex-end; */
+    text-align: center;
+    margin-top: 1.6rem;
 }
 
 .hero__text>h2 {
     min-height: 0vw;
     margin-bottom: 0;
     text-decoration: none;
-    color: var(--col-cream);
-    font-size: clamp(3.2rem, 5vw, 6.4rem);
+    color: var(--col-navy);
+    font-size: clamp(1rem, 9.2vw, 10.1rem);
+    font-family: 'Lemon Milk', sans-serif;
+    font-weight: 900;
+    color: var(--col-blue);
+    text-shadow: -0.08em -0.04em 0 var(--col-brown), -0.15em -0.07em 0 var(--col-light-shadow);
+    letter-spacing: 0.4rem;
+    margin-bottom: 0.8rem;
 }
 
 .hero__text>p {
     min-height: 0vw;
-    color: var(--col-cream);
-    font-size: clamp(1.6rem, 2.5vw, 3.2rem);
+    color: var(--col-text);
+    font-size: clamp(1.6rem, 6.5vw, 5.05rem);
+    font-family: 'SF Movie Poster', sans-serif;
+    letter-spacing: 0.09em;
+    margin-bottom: 0;
 }
 
 .overlay {
@@ -277,7 +370,8 @@ nav {
 \*---------------------------*/
 
 .tabs-container {
-    padding: 1.6rem var(--side-padding) 0 var(--side-padding);
+    position: relative;
+    padding: 0rem var(--side-padding) 0 var(--side-padding);
     display: flex;
     justify-content: center;
     background-color: var(--col-bg1);
@@ -287,33 +381,32 @@ nav {
 .btn {
     width: 100%;
     height: 4rem;
-    border: 1px solid var(--col-accent);
-    border-radius: 2px;
-    background-color: var(--col-bg2);
+    border: none;
+    background-color: var(--col-bg1);
     color: var(--col-text);
     transition: background-color 500ms ease-in-out,
         border 1500ms ease-in-out,
         filter 200ms ease-in-out;
     animation: fadeIn 1500ms ease-in 500ms 1 normal;
     animation-fill-mode: both;
+    border-bottom: 1px solid var(--col-accent);
 }
 
 .btn:hover {
-    filter: brightness(115%);
-    transition: 200ms;
+    color: var(--col-accent);
+    filter: brightness(100%);
+    transition: 500ms;
 }
 
 .btn--tab--left {
-    border-radius: 2px 0 0 2px;
     position: relative;
 }
 
 .btn--tab--right {
     border-left: none;
-    border-radius: 0 2px 2px 0;
-    position: relative;
 }
 
+/* line under selected tab text */
 .tab--selected::after {
     content: '';
     position: absolute;
@@ -329,6 +422,27 @@ nav {
 .btn--a-wrap {
     width: 100%;
 }
+
+.diamond {
+    position: absolute;
+    border: 1px solid #ffffff00;
+    transform: rotate(45deg);
+    width: 15px;
+    height: 15px;
+    bottom: -7px;
+    background-color: var(--col-bg1);
+    /* opacity: 0; */
+    /* hide diamond, faded in with js & .enter--load class */
+}
+
+/* .diamond::before {
+    content: '';
+    position: absolute;
+    width: 100px;
+    border-bottom: 1px solid red;
+    background-color: red;
+    transform: rotate(-45deg);
+} */
 
 
 
@@ -746,6 +860,11 @@ code {
 .enter--load {
     opacity: 1;
     transition: opacity 1250ms ease-in, transform 1500ms ease;
+}
+
+.enter--diamond {
+    border: 1px solid var(--col-accent);
+    transition: border 1250ms ease-in;
 }
 
 @keyframes fadeIn {

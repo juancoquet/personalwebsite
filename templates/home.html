@@ -4,7 +4,7 @@
 {% block content %}
 
 <section class="hero">
-  <img class="hero-photo" src="{% static '/img/hero-4-r.webp' %}" alt="Juan Coquet"
+  {% comment %} <img class="hero-photo" src="{% static '/img/hero-4-r.webp' %}" alt="Juan Coquet"
     srcset="{% static 'img/hero-4-r.webp' %} 5310w,
             {% static 'img/hero-4-r1800.webp' %} 1800w,
             {% static 'img/hero-4-r1200.webp' %} 1200w,
@@ -14,8 +14,8 @@
             {% static 'img/hero-4-r350.webp' %} 350w"
     sizes="(max-width: 900px) 100vw, 100vw">
   <div class="overlay"></div>
-  <div class="overlay--fade"></div>
-  <div class="hero__text">
+  <div class="overlay--fade"></div> {% endcomment %}
+  <div class="hero__text content-width">
     <h2 id="hero-name" class="leave-left--hero">JUAN COQUET</h2>
     <p id="hero-caption" class="leave-right--hero">I write code and play music</p>
   </div>
@@ -25,6 +25,8 @@
   <div class="tabs-container content-width">
     <button id="code-tab" class="btn btn--tab--left tab--selected">CODE</button>
     <button id="music-tab" class="btn btn--tab--right">MUSIC</button>
+    <!-- tab decorations -->
+    <div class="diamond"></div>
   </div>
 </section>
 
@@ -38,7 +40,7 @@
           <source src="{% static 'video/toyl-demo2-web.mp4' %}" type="video/mp4">
         </video>
         <div class="card__content">
-          <h3>Time of Your Life</h3>
+          <h3>Time of your life</h3>
           <div class="card__content__text">
             <p>An introspective 90-year life calendar. Time of Your Life takes a user's date of birth and translates it into a grid of 4,680 boxes, each representing a week in a 90-year life.</p>
             <p>The user's current week of life is highlighted in their calendar, with weeks already passed greyed out.</p>

@@ -6,6 +6,7 @@ const codeTab = document.querySelector('#code-tab');
 const codeTabItems = document.querySelectorAll('.code-tab');
 const musicTab = document.querySelector('#music-tab');
 const musicTabItems = document.querySelectorAll('.music-tab');
+const diamond = document.querySelector('.diamond');
 
 
 
@@ -97,6 +98,7 @@ const codeElements = document.querySelectorAll('.code-tab>*');
 
 document.addEventListener('DOMContentLoaded', fadeInHeroText);
 document.addEventListener('DOMContentLoaded', removeAnimations);
+document.addEventListener('DOMContentLoaded', fadeInDiamond);
 
 async function fadeInHeroText() {
     await sleep(0.5);
@@ -111,6 +113,10 @@ async function removeAnimations() {
     })
 }
 
+async function fadeInDiamond() {
+    await sleep(0.5);
+    diamond.classList.add('enter--diamond');
+}
 
 
 // Utility ----------------------------------
