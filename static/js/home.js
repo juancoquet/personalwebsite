@@ -6,8 +6,6 @@ const codeTab = document.querySelector('#code-tab');
 const codeTabItems = document.querySelectorAll('.code-tab');
 const musicTab = document.querySelector('#music-tab');
 const musicTabItems = document.querySelectorAll('.music-tab');
-const diamond = document.querySelector('.diamond');
-
 
 
 // Modal --------------------------------------------
@@ -95,6 +93,8 @@ async function setMusicTheme() {
 const jc = document.querySelector('#hero-name');
 const caption = document.querySelector('#hero-caption');
 const codeElements = document.querySelectorAll('.code-tab>*');
+const diamond = document.querySelector('.diamond');
+const diamondShadow = document.querySelector('.diamond-shadow');
 
 document.addEventListener('DOMContentLoaded', fadeInHeroText);
 document.addEventListener('DOMContentLoaded', removeAnimations);
@@ -116,6 +116,7 @@ async function removeAnimations() {
 async function fadeInDiamond() {
     await sleep(0.5);
     diamond.classList.add('enter--diamond');
+    diamondShadow.classList.add('enter--load');
 }
 
 

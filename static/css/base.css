@@ -77,6 +77,7 @@
     --col-blue: #9CA7AF;
     --col-brown: #573F3A;
     --col-light-shadow: #817165;
+    --col-drop-shadow1: #DEC3B4;
     --col-dark-brown: #40352D;
 
     --col-navy: #1C354A;
@@ -107,6 +108,7 @@
     --col-bg2: var(--col-cream-dark);
     --col-accent: var(--col-dark-brown);
     --col-text: var(--col-dark-brown);
+    --col-shadow: var(--col-drop-shadow1);
 }
 
 .music-theme {
@@ -406,6 +408,7 @@ nav {
 }
 
 .btn--tab--right {
+    position: relative;
     border-left: none;
 }
 
@@ -439,18 +442,33 @@ nav {
     height: 15px;
     bottom: -7px;
     background-color: var(--col-bg1);
-    /* opacity: 0; */
-    /* hide diamond, faded in with js & .enter--load class */
 }
 
-/* .diamond::before {
-    content: '';
+.diamond-shadow {
     position: absolute;
-    width: 100px;
-    border-bottom: 1px solid red;
-    background-color: red;
-    transform: rotate(-45deg);
-} */
+    transform: rotate(45deg);
+    width: 15px;
+    height: 15px;
+    bottom: -13px;
+    background-color: var(--col-drop-shadow1);
+    opacity: 0;
+}
+
+.tab-shadow {
+    position: absolute;
+    width: 95%;
+    height: 6px;
+    background-color: var(--col-drop-shadow1);
+    bottom: -7px;
+}
+
+.tab-shadow--left {
+    right: 0;
+}
+
+.tab-shadow--right {
+    left: 0;
+}
 
 
 
@@ -471,8 +489,7 @@ nav {
     margin: 3.2rem 0;
     width: 100%;
     max-width: var(--vid-max-width);
-    box-shadow: 8px 8px 16px var(--shadow-light),
-        -8px -8px 16px var(--shadow-light);
+    box-shadow: 0 19px 0 -12px var(--col-drop-shadow1);
 }
 
 .preview-card.top {
@@ -547,9 +564,7 @@ nav {
     margin-bottom: 0.8rem;
 }
 
-.logo.logo--python {
-    
-}
+.logo.logo--python {}
 
 
 
@@ -884,6 +899,7 @@ code {
     border: 1px solid var(--col-accent);
     transition: border 1250ms ease-in;
 }
+
 
 @keyframes fadeIn {
     0% {
