@@ -63,6 +63,22 @@
     font-style: normal;
 }
 
+/* ------- */
+
+@font-face {
+    font-family: 'Cinematografica';
+    src: url('../fonts/Cinematografica-Regular.ttf') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Cinematografica';
+    src: url('../fonts/Cinematografica-Bold.ttf') format('woff');
+    font-weight: bold;
+    font-style: normal;
+}
+
 
 
 
@@ -137,10 +153,13 @@ body {
 
 h1,
 h2,
-h3 {
-    font-family: 'SF Movie Poster', sans-serif;
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'Cinematografica', sans-serif;
     color: var(--col-text);
-    font-weight: 400;
+    font-weight: bold;
     letter-spacing: 0.1em;
 }
 
@@ -150,7 +169,7 @@ h1 {
 
 h2 {
     font-size: 3.2rem;
-    margin-bottom: 3.2rem;
+    margin-bottom: 2.4rem;
     /* text-decoration: underline; */
     /* text-decoration-color: var(--col-dark); */
     text-decoration-thickness: 1px;
@@ -343,7 +362,8 @@ nav {
     min-height: 0vw;
     color: var(--col-text);
     font-size: clamp(1.6rem, 6.5vw, 5.05rem);
-    font-family: 'SF Movie Poster', sans-serif;
+    font-family: 'Cinematografica', sans-serif;
+    font-weight: bold;
     letter-spacing: 0.09em;
     margin-bottom: 0;
 }
@@ -381,6 +401,7 @@ nav {
     justify-content: center;
     background-color: var(--col-bg1);
     transition: 500ms ease-in-out;
+    margin-bottom: 0.8rem;
 }
 
 .btn {
@@ -544,6 +565,10 @@ nav {
     border-radius: 0 0 2px 0;
     background-color: var(--col-cream-dark);
     animation: none;
+}
+
+.caption {
+    margin: 0.8rem 0;
 }
 
 
