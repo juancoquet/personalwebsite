@@ -692,6 +692,11 @@ footer {
 .icon--btn {
     height: 1.2rem;
     margin-left: 0.8rem;
+    margin-bottom: -0.2rem;
+}
+
+.icon--btn.bi-box-arrow-up-right {
+    margin-bottom: -0.4rem;
 }
 
 .footer__line {
