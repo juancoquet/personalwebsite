@@ -294,15 +294,26 @@ nav {
     border: 1px solid var(--col-navy-dark);
     border-radius: 2px;
     padding: 0.3rem 0.6rem;
-    margin-bottom: 1.1rem;
     cursor: pointer;
     transition: 200ms;
+    margin-bottom: 1.1rem;
+    margin-left: 2.4rem;
 }
 
 .nav__contact:hover {
     color: var(--col-cream);
     background-color: var(--col-navy-dark);
     transition: 200ms;
+}
+
+.nav-items--right {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.nav__notes {
+    margin-top: 0.4rem;
+    margin-bottom: 0;
 }
 
 
