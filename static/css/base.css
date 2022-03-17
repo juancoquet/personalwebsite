@@ -72,7 +72,8 @@
 \*---------------------------*/
 
 :root {
-    --col-cream: #E7D9CB;
+    --col-cream: #F6E5D3;
+    --col-cream-dark: #f3dcc4;
     --col-blue: #9CA7AF;
     --col-brown: #573F3A;
     --col-light-shadow: #817165;
@@ -103,7 +104,7 @@
 
 .code-theme {
     --col-bg1: var(--col-cream);
-    --col-bg2: var(--col-navy-dark);
+    --col-bg2: var(--col-cream-dark);
     --col-accent: var(--col-dark-brown);
     --col-text: var(--col-dark-brown);
 }
@@ -166,6 +167,7 @@ li {
     font-size: 1.6rem;
     line-height: 1.4;
     font-family: 'Lato', sans-serif;
+    font-weight: 300;
     color: var(--col-text);
 }
 
@@ -181,6 +183,7 @@ p {
 button {
     font-size: 1.6rem;
     font-family: 'Lato', sans-serif;
+    font-weight: 300;
     cursor: pointer;
 }
 
@@ -394,7 +397,7 @@ nav {
 
 .btn:hover {
     color: var(--col-accent);
-    filter: brightness(100%);
+    /* filter: brightness(100%); */
     transition: 500ms;
 }
 
@@ -404,6 +407,11 @@ nav {
 
 .btn--tab--right {
     border-left: none;
+}
+
+.tab--selected {
+    position: relative;
+    font-weight: 400;
 }
 
 /* line under selected tab text */
@@ -491,6 +499,7 @@ nav {
 .card__buttons {
     display: flex;
     margin-top: 0.8rem;
+    border-top: 1px solid var(--col-accent);
 }
 
 .site-demo,
@@ -506,6 +515,9 @@ nav {
     border-bottom: none;
     border-left: none;
     border-radius: 0 0 0 2px;
+    border-right: 1px solid var(--col-accent);
+    background-color: var(--col-cream-dark);
+    animation: none;
 }
 
 .card__btn--right {
@@ -513,6 +525,8 @@ nav {
     border-left: none;
     border-right: none;
     border-radius: 0 0 2px 0;
+    background-color: var(--col-cream-dark);
+    animation: none;
 }
 
 
@@ -531,6 +545,10 @@ nav {
 .logo {
     height: 32px;
     margin-bottom: 0.8rem;
+}
+
+.logo.logo--python {
+    
 }
 
 
@@ -666,7 +684,7 @@ footer {
 }
 
 .icon-style {
-    fill: var(--col-accent);
+    fill: var(--col-text);
 }
 
 .alt-icon-style {
@@ -706,7 +724,7 @@ footer {
 }
 
 .modal {
-    background-color: var(--col-cream);
+    background-color: rgba(255, 252, 247, 0.93);
     border: 1px solid var(--col-accent);
     border-radius: 2px;
     width: 90vw;
@@ -761,7 +779,7 @@ footer {
 
 * {
     scrollbar-width: thin;
-    scrollbar-color: var(--col-accent) transparent;
+    scrollbar-color: var(--col-blue) transparent;
 }
 
 ::-webkit-scrollbar {
@@ -770,7 +788,7 @@ footer {
 }
 
 ::-webkit-scrollbar-thumb {
-    background-color: var(--scroll-purple);
+    background-color: var(--col-blue);
     border-radius: 100px;
 }
 
