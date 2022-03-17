@@ -95,6 +95,7 @@ const caption = document.querySelector('#hero-caption');
 const codeElements = document.querySelectorAll('.code-tab>*');
 const diamond = document.querySelector('.diamond');
 const diamondShadow = document.querySelector('.diamond-shadow');
+const tabs = document.querySelector('.tabs-container');
 
 document.addEventListener('DOMContentLoaded', fadeInHeroText);
 document.addEventListener('DOMContentLoaded', removeAnimations);
@@ -102,8 +103,9 @@ document.addEventListener('DOMContentLoaded', fadeInDiamond);
 
 async function fadeInHeroText() {
     await sleep(0.5);
-    jc.classList.replace('leave-left--hero', 'enter--load');
-    caption.classList.replace('leave-right--hero', 'enter--load');
+    jc.classList.replace('leave-top--hero', 'enter--load');
+    caption.classList.replace('leave-top--hero', 'enter--load');
+    tabs.classList.replace('leave-bottom--hero', 'enter--load');
 }
 
 async function removeAnimations() {

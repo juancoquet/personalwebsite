@@ -898,14 +898,14 @@ code {
     transition: opacity 500ms ease, transform 500ms ease;
 }
 
-.leave-left--hero {
-    transform: translateX(-40%);
+.leave-top--hero {
+    transform: translateY(-100%);
     opacity: 0;
     transition: opacity 500ms ease, transform 500ms ease;
 }
 
-.leave-right--hero {
-    transform: translateX(40%);
+.leave-bottom--hero {
+    transform: translateY(50%);
     opacity: 0;
     transition: opacity 500ms ease, transform 500ms ease;
 }
