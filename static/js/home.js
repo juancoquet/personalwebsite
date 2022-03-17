@@ -1,4 +1,3 @@
-const contact = document.querySelector('.nav__contact');
 const modalAll = document.querySelector('.modal-overlay');
 const modalClose = document.querySelector('.modal__close');
 const modalCard = document.querySelector('.modal');
@@ -6,29 +5,6 @@ const codeTab = document.querySelector('#code-tab');
 const codeTabItems = document.querySelectorAll('.code-tab');
 const musicTab = document.querySelector('#music-tab');
 const musicTabItems = document.querySelectorAll('.music-tab');
-
-
-// Modal --------------------------------------------
-
-contact.addEventListener('click', openModal);
-
-async function openModal() {
-    modalAll.classList.remove('hidden');
-    await sleep(0.05);
-    modalAll.classList.add('enter');
-    modalCard.classList.replace('leave-top', 'enter');
-
-}
-
-
-modalClose.addEventListener('click', closeModal);
-
-async function closeModal() {
-    modalCard.classList.replace('enter', 'leave-top');
-    modalAll.classList.remove('enter');
-    await sleep(0.5);
-    modalAll.classList.add('hidden');
-}
 
 
 // Code/Music --------------------------------------
