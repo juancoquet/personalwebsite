@@ -261,7 +261,7 @@ a {
 header {
     position: sticky;
     top: 0;
-    z-index: 999;
+    z-index: 998;
     background-color: rgba(255, 252, 247, 0.93);
 }
 
@@ -314,6 +314,55 @@ nav {
 .nav__notes {
     margin-top: 0.4rem;
     margin-bottom: 0;
+}
+
+.nav__menu,
+.nav__menu-close {
+    font-family: 'Lemon Milk', sans-serif;
+    font-weight: 400;
+    letter-spacing: 0.05em;
+    font-size: 1.6rem;
+    color: var(--col-navy-dark);
+    cursor: pointer;
+    margin-top: 0.4rem;
+    margin-right: 0;
+}
+
+.nav__menu {
+    display: none;
+}
+
+.mobile-menu {
+    padding: 0 var(--side-padding);
+    width: fit-content;
+    position: absolute;
+    z-index: 999;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    background-color: rgba(255, 252, 247, 0.93);
+}
+
+@media screen and (max-width: 485px) {
+    .nav__menu {
+        display: block;
+    }
+
+    .nav-items--right {
+        flex-direction: column;
+        align-items: flex-end;
+    }
+
+    .nav__item {
+        display: none;
+        margin-bottom: 0.8rem;
+    }
+
+    .nav__contact {
+        margin-left: 0;
+        margin-bottom: 1.6rem;
+    }
 }
 
 
