@@ -29,11 +29,11 @@
     <div class="nav-items--right">
       <p class="nav__menu">MENU</p>
       <p class="nav__menu-close hidden">CLOSE</p>
-      <a href={% url 'library'%}><p class="nav__item nav__notes">NOTES</p></a>
+      <a class="nav__item" href={% url 'library'%}><p class="nav__text">NOTES</p></a>
       <p class="nav__item nav__contact">CONTACT</p>
     </div>
   </nav>
-  <div class="mobile-menu"></div>
+  <div class="mobile-menu leave-top--scale"></div>
 </header>
 
 {% block content %}

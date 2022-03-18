@@ -147,7 +147,7 @@ html {
 }
 
 body {
-    background-color: var(--col-bg1);
+    background-color: var(--col-bg2);
     transition: 500ms ease-in-out;
 }
 
@@ -261,7 +261,7 @@ a {
 header {
     position: sticky;
     top: 0;
-    z-index: 998;
+    z-index: 999;
     background-color: rgba(255, 252, 247, 0.93);
 }
 
@@ -285,17 +285,22 @@ nav {
     cursor: pointer;
 }
 
-.nav__contact {
+.nav__text {
     font-family: 'Lemon Milk', sans-serif;
     font-weight: 400;
     letter-spacing: 0.05em;
     font-size: 1.6rem;
-    color: var(--col-text);
+    color: var(--col-navy-dark);
+    cursor: pointer;
+    margin-bottom: 0;
+    padding-top: 0.4rem;
+}
+
+.nav__contact {
     border: 1px solid var(--col-navy-dark);
     border-radius: 2px;
     padding: 0.3rem 0.6rem;
-    cursor: pointer;
-    transition: 200ms;
+    transition: background-color 200ms;
     margin-bottom: 1.1rem;
     margin-left: 2.4rem;
 }
@@ -336,9 +341,9 @@ nav {
     padding: 0 var(--side-padding);
     width: fit-content;
     position: absolute;
-    z-index: 999;
+    z-index: 998;
     right: 0;
-    display: flex;
+    display: none;
     flex-direction: column;
     align-items: flex-end;
     background-color: rgba(255, 252, 247, 0.93);
@@ -362,6 +367,10 @@ nav {
     .nav__contact {
         margin-left: 0;
         margin-bottom: 1.6rem;
+    }
+
+    .mobile-menu {
+        display: flex;
     }
 }
 
@@ -964,6 +973,12 @@ code {
     transition: opacity 500ms ease, transform 500ms ease;
 }
 
+.leave-top--scale {
+    transform: scaleY(0);
+    transition: transform 250ms ease;
+    transform-origin: top;
+}
+
 .leave-bottom--hero {
     transform: translateY(50%);
     opacity: 0;
@@ -988,6 +1003,12 @@ code {
 .enter--diamond {
     border: 1px solid var(--col-accent);
     transition: border 1250ms ease-in;
+}
+
+.enter--scale {
+    transform: scale(1);
+    transition: transform 250ms ease;
+    transform-origin: top;
 }
 
 
