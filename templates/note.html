@@ -5,9 +5,16 @@
 <section class="section--bg1">
   <div class="content-width">
     <h1 class="page-heading">Notes</h1>
-    <a href="{% url 'library' %}">
-      &lt; Back to library
-    </a>
+    
+    <div class="container">
+      <a class="margin-bottom" href="javascript:history.back()">
+        &lt; Back to previous note
+      </a>
+      <a href="{% url 'library' %}">
+        &lt; Back to library
+      </a>
+    </div>
+
     <div class="note">{{ note_html }}</div>
   </div>
 </section>

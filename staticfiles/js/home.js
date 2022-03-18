@@ -1,4 +1,3 @@
-const contact = document.querySelector('.nav__contact');
 const modalAll = document.querySelector('.modal-overlay');
 const modalClose = document.querySelector('.modal__close');
 const modalCard = document.querySelector('.modal');
@@ -6,30 +5,6 @@ const codeTab = document.querySelector('#code-tab');
 const codeTabItems = document.querySelectorAll('.code-tab');
 const musicTab = document.querySelector('#music-tab');
 const musicTabItems = document.querySelectorAll('.music-tab');
-
-
-
-// Modal --------------------------------------------
-
-contact.addEventListener('click', openModal);
-
-async function openModal() {
-    modalAll.classList.remove('hidden');
-    await sleep(0.05);
-    modalAll.classList.add('enter');
-    modalCard.classList.replace('leave-top', 'enter');
-
-}
-
-
-modalClose.addEventListener('click', closeModal);
-
-async function closeModal() {
-    modalCard.classList.replace('enter', 'leave-top');
-    modalAll.classList.remove('enter');
-    await sleep(0.5);
-    modalAll.classList.add('hidden');
-}
 
 
 // Code/Music --------------------------------------
@@ -94,14 +69,19 @@ async function setMusicTheme() {
 const jc = document.querySelector('#hero-name');
 const caption = document.querySelector('#hero-caption');
 const codeElements = document.querySelectorAll('.code-tab>*');
+const diamond = document.querySelector('.diamond');
+const diamondShadow = document.querySelector('.diamond-shadow');
+const tabs = document.querySelector('.tabs-container');
 
 document.addEventListener('DOMContentLoaded', fadeInHeroText);
 document.addEventListener('DOMContentLoaded', removeAnimations);
+document.addEventListener('DOMContentLoaded', fadeInDiamond);
 
 async function fadeInHeroText() {
     await sleep(0.5);
-    jc.classList.replace('leave-left--hero', 'enter--load');
-    caption.classList.replace('leave-right--hero', 'enter--load');
+    jc.classList.replace('leave-top--hero', 'enter--load');
+    caption.classList.replace('leave-top--hero', 'enter--load');
+    tabs.classList.replace('leave-bottom--hero', 'enter--load');
 }
 
 async function removeAnimations() {
@@ -111,6 +91,11 @@ async function removeAnimations() {
     })
 }
 
+async function fadeInDiamond() {
+    await sleep(0.5);
+    diamond.classList.add('enter--diamond');
+    diamondShadow.classList.add('enter--load');
+}
 
 
 // Utility ----------------------------------
