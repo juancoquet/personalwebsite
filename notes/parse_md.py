@@ -17,6 +17,7 @@ def parse_markdown(markdown):
     markdown = parse_h4(markdown)
     markdown = parse_h5(markdown)
     markdown = parse_h6(markdown)
+    markdown = parse_image(markdown)
     markdown = parse_p(markdown)
     markdown = parse_bold(markdown)
     markdown = parse_italic(markdown)
@@ -24,8 +25,8 @@ def parse_markdown(markdown):
     markdown = parse_ul(markdown)
     markdown = parse_ol(markdown)
     markdown = parse_inline_code(markdown)
-    markdown = parse_image(markdown)
     markdown = parse_inline_tex(markdown)
+    markdown = clean_blank_lines(markdown)
     markdown = parse_code_block(markdown) # keep this at the end
     return markdown
 
@@ -91,6 +92,11 @@ def parse_p(markdown):
     tag = 'p'
     return parse_outside_code_block(markdown, p, tag)
 
+def clean_blank_lines(markdown):
+    blank_lines = re.compile(r'(<p></p>|<p>\n</p>)', re.MULTILINE)
+    replaced = blank_lines.sub('', markdown)
+    return replaced
+
 def parse_inline_code(markdown):
     inline_code = re.compile(r'`((?!`).+?)`')
     tag = 'code'
@@ -118,6 +124,8 @@ def parse_hr(markdown):
             line = hr.sub(r'<hr>', line)
         replaced.append(line)
     replaced = '\n'.join(replaced)
+    hr_end = re.compile(r'<hr>$')
+    replaced = hr_end.sub('', replaced)
     return replaced
 
 def parse_ul(markdown):

@@ -89,14 +89,12 @@
 
     --col-navy: #1C354A;
     --col-navy-dark: #162A3B;
-    --col--accent-purple: #8765AF;
 
     --col-pink: #FFE3DC;
     --col-pink-dark: #FFCEC2;
     --col-accent-drab: #A26769;
     --col-gunmetal: #223843;
 
-    --scroll-purple: rgba(135, 101, 175, 0.7);
     --scroll-drab: rgba(162, 103, 105, 0.7);
 
     --shadow-light: rgba(255, 255, 255, 0.07);
@@ -104,8 +102,6 @@
 
     --side-padding: 2.4rem;
     --max-width: 900px;
-
-    /* --vid-max-width: 360px; */
 }
 
 /* themes */
@@ -173,6 +169,14 @@ h3 {
     color: var(--col-text);
 }
 
+.heading--lato {
+    font-family: 'lato', sans-serif;
+    font-weight: 400;
+    letter-spacing: 0;
+    font-size: 2.4rem;
+}
+
+a,
 p,
 span,
 li {
@@ -199,10 +203,18 @@ button {
     cursor: pointer;
 }
 
-a {
-    text-decoration: none;
-    /* color: var(--col-cream); */
-    color: var(--col-accent);
+a,
+a:visited {
+    color: #CA3C25;
+    text-decoration: underline;
+}
+
+a.margin-bottom {
+    margin-bottom: 1.6rem;
+}
+
+hr {
+    margin: 1.6rem 0;
 }
 
 .content-width {
@@ -241,7 +253,7 @@ a {
     animation-fill-mode: both;
 }
 
-.page__heading {
+.page-heading {
     margin: 1.6rem 0;
 }
 
@@ -278,6 +290,10 @@ nav {
     font-size: 1.6rem;
     color: var(--col-navy-dark);
     cursor: pointer;
+}
+
+a.nav__item {
+    text-decoration: none;
 }
 
 .nav__text {
@@ -913,7 +929,54 @@ footer {
     #NOTE
 \*---------------------------*/
 .note {
-    /* background-color: var(--col-cream); */
+    background-color: #FCF5EE;
+    margin: 1.6rem 0;
+    padding: 1.6rem;
+    border: 1px solid var(--col-accent);
+    border-radius: 2px;
+}
+
+.note>h1,
+.note>h2,
+.note>h3,
+.note>h4,
+.note>h5,
+.note>h6 {
+    font-family: 'Lato', sans-serif;
+    font-weight: 700;
+    margin-bottom: 0.8rem;
+    letter-spacing: 0;
+}
+
+.note>h1 {
+    font-size: 3.2rem;
+}
+
+.note>h2 {
+    font-size: 2.4rem;
+}
+
+.note>h3 {
+    font-size: 2rem;
+}
+
+.note>h4 {
+    font-size: 1.6rem;
+}
+
+.note>h5 {
+    font-size: 1.6rem;
+    color: var(--col-light-shadow);
+}
+
+.note>h6 {
+    font-size: 1.6rem;
+    color: var(--col-light-shadow);
+    opacity: 0.8;
+}
+
+.note>p>img {
+    max-width: 100%;
 }
 
 
@@ -923,7 +986,7 @@ footer {
     #CODE BLOCK
 \*---------------------------*/
 pre code {
-    background-color: var(--col-bg1);
+    background-color: #faf0e5;
     padding: 0.4rem;
     border-radius: 2px;
     font-size: 1.3rem;
@@ -933,10 +996,14 @@ pre code {
 }
 
 code {
-    background-color: var(--col-bg1);
+    background-color: #faf0e5;
     font-size: 1.3rem;
     color: var(--col-text);
     padding: 0 0.3rem;
+    overflow: scroll;
+
+    border: 1px solid #F6E0CB;
+    border-radius: 2px;
 }
 
 

@@ -2,14 +2,15 @@
 {% load static %}
 
 {% block content %}
-<section class="section--bg-1">
+<section class="section--bg1">
   <div class="content-width">
-    <h1>Note not found</h1>
-    <h2>The note '{{ note_title }}' is not available</h2>
+    <h1 class="page-heading">Note not found</h1>
+    <h2 class="heading--lato">The note '{{ note_title }}' is not available</h2>
     <p>
       I have not made all of my note files public on my website, so there are some unresolved links to notes that only exist
       on my local system – you've just clicked one.
     </p>
+    <a class="margin-bottom" href="javascript:history.back()">&lt; Back to previous note</a>
   </div>
 </section>
 {% endblock content %}

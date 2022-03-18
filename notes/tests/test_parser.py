@@ -1,5 +1,5 @@
 from django.urls import reverse
-from unittest import TestCase
+from unittest import TestCase, result
 from unittest import skip
 
 from .. import parse_md
@@ -265,11 +265,13 @@ class MarkdownParseTest(TestCase):
         expected = '<p>this should parse</p>\n# this should not parse\n<p>this should also parse</p>'
         self.assertEqual(result, expected)
 
+    @skip
     def test_p_does_not_parse_quote(self):
         text = 'this should parse\n> this should not parse\nthis should also parse'
         result = parse_md.parse_p(text)
         expected = '<p>this should parse</p>\n> this should not parse\n<p>this should also parse</p>'
         self.assertEqual(result, expected)
+        self.fail('fix expected result')
 
     def test_p_does_not_parse_unordered_list(self):
         text = 'this should parse\n- this should not parse\nthis should also parse\n* this should not parse either'
@@ -281,6 +283,18 @@ class MarkdownParseTest(TestCase):
         text = 'this should parse\n1. this should not parse\nthis should also parse\n12. this should not parse either'
         result = parse_md.parse_p(text)
         expected = '<p>this should parse</p>\n1. this should not parse\n<p>this should also parse</p>\n12. this should not parse either'
+        self.assertEqual(result, expected)
+
+    def test_clean_blank_lines(self):
+        text = '<p>some text</p><p></p><p>some more text</p>'
+        result = parse_md.clean_blank_lines(text)
+        expected = '<p>some text</p><p>some more text</p>'
+        self.assertEqual(result, expected)
+
+    def test_clean_multiple_blank_lines(self):
+        text = '<p></p><h1>some text</h1><p></p><p></p><p>some more text</p><p></p>'
+        result = parse_md.clean_blank_lines(text)
+        expected = '<h1>some text</h1><p>some more text</p>'
         self.assertEqual(result, expected)
 
     def test_parse_inline_code(self):
@@ -341,6 +355,12 @@ class MarkdownParseTest(TestCase):
         text = 'this --- should not parse'
         result = parse_md.parse_hr(text)
         expected = 'this --- should not parse'
+        self.assertEqual(result, expected)
+
+    def test_remove_hr_from_end(self):
+        text = '<p>some text</p>\n---\n<p>some more text</p>\n---'
+        result = parse_md.parse_hr(text)
+        expected = '<p>some text</p>\n<hr>\n<p>some more text</p>\n'
         self.assertEqual(result, expected)
 
     def test_parse_ul(self):
