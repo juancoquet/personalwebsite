@@ -79,13 +79,15 @@
 \*---------------------------*/
 
 :root {
-    --col-cream: #F6E5D3;
-    --col-cream-dark: #f3dcc4;
+    --col-cream: #f8ece0;
+    --col-cream-dark: #F4E0CD;
     --col-blue: #9CA7AF;
     --col-brown: #573F3A;
     --col-light-shadow: #817165;
     --col-drop-shadow1: #DEC3B4;
     --col-dark-brown: #40352D;
+
+    --col-blue-accent: #6F99A8;
 
     --col-navy: #1C354A;
     --col-navy-dark: #162A3B;
@@ -108,6 +110,7 @@
 
 .code-theme {
     --col-bg1: var(--col-cream);
+    /* --col-bg2: var(--col-cream-dark); */
     --col-bg2: var(--col-cream-dark);
     --col-accent: var(--col-dark-brown);
     --col-text: var(--col-dark-brown);
@@ -1060,7 +1063,7 @@ code {
 
 .enter--load {
     opacity: 1;
-    transition: opacity 1250ms ease-in, transform 1500ms ease;
+    transition: opacity 1250ms ease-in, transform 1500ms ease, background-color 500ms ease-in-out;
 }
 
 .enter--diamond {
