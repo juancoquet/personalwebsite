@@ -122,7 +122,7 @@
           <div class="card__content__text">
             <p>The website you are currently on, made to showcase my work.</p>
             <p>I faced the challenge of representing and cohesively tying together my two biggest interests, coding and music, on one page. I used CSS styling to create a distinction between the two, and animations to seamlessly bring them together.</p>
-            <p>I also included a section to display my personal notes on the books I’ve read, for which I had to build a program to parse interlinked markdown files to HTML while preserving references across note files. See the <a href="{% url 'library' %}">notes</a> section for more details – each note that is clicked on is read as a markdown file and translated to HTML with every request.</p>
+            <p>I also included a section to display my personal notes on the books I’ve read, for which I had to build a program to parse interlinked markdown files to HTML while preserving references across note files. See the <a href="{% url 'library' %}">notes</a> section for more details – each note that is clicked on is read server-side as a markdown file and translated to HTML with every request.</p>
             <p></p>
             <p class="card__content__text__last">Built with Django and vanilla Javascript inside a Docker container. Styled with vanilla CSS.</p>
           </div>
