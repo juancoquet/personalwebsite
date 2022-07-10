@@ -33,6 +33,34 @@
     <div class="card-container">
       <div class="preview-card top">
         <video class="site-demo" autoplay loop muted playsinline>
+          <source src="{% static 'video/goallens-demo.mp4' %}" type="video/mp4">
+        </video>
+        <div class="card__content">
+          <h3>Goal Lens</h3>
+          <div class="card__content__text">
+            <p>A prediction model for Europe's top 5 football leagues.</p>
+            <p>Goal Lens uses football data from 2017 onwards, for all top-flight matches in England, Spain, France, Italy and Germany to make predictions. Different strategies were back tested on past results to improve the accuracy of the model.</p>
+            <p>Predictions for the winning team and the most likely goals scored are generated two days before each fixture by analysing both team's recent performance data.</p>
+            <p class="card__content__text__last">Built with Python, Pandas, Django and Javascript inside a Docker container, deployed to AWS. Styled with vanilla CSS.</p>
+          </div>
+        </div>
+        <div class="card__buttons">
+          <a class="btn--a-wrap" href="https://goallens.com/" target="_blank">
+            <button class="btn card__btn--right">
+              <div class="container container--center">
+                View live
+                <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" fill="currentColor" class="icon icon--btn bi bi-box-arrow-up-right" viewBox="0 0 18 18">
+                  <path fill-rule="evenodd" d="M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5z"/>
+                  <path fill-rule="evenodd" d="M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5.5a.5.5 0 0 0 1 0v-5z"/>
+                </svg>
+              </div>
+            </button>
+          </a>
+        </div>
+      </div>
+      
+      <div class="preview-card">
+        <video class="site-demo" autoplay loop muted playsinline>
           <source src="{% static 'video/toyl-demo2-web.mp4' %}" type="video/mp4">
         </video>
         <div class="card__content">
@@ -43,11 +71,11 @@
             <p>Life events can also be added to the life calendar – these are important milestones such as a graduation or the birth of a loved one.</p>
             <p>This project was built using Test Driven Development from the first line of code to the last.</p>
             <p>Time of Your Life supports user authentication and has over 450 active user accounts.</p>
-            <p class="card__content__text__last">Built with Django and some light Javascript inside a Docker container. Styled with vanilla CSS.</p>
+            <p class="card__content__text__last">Built with Python, Django and Javascript inside a Docker container, deployed to AWS. Styled with vanilla CSS.</p>
           </div>
         </div>
         <div class="card__buttons">
-            <a class="btn--a-wrap" href="https://www.timeofyourlife.io/" target="_blank">
+            <a class="btn--a-wrap" href="https://timeofyourlife.io/" target="_blank">
               <button class="btn card__btn--left">
                 <div class="container container--center">
                   View live
@@ -83,7 +111,7 @@
             <p>A tool for music learners and teachers. Note Adder helps the user to easily build intuitions about how musical note values interact by representing them in a visual way.</p>
             <p>Having taught music lessons to students of all ages and abilities over several years, I noticed that many beginners often struggle to really understand and internalise musical note values. Through trial and error I developed an effective visual method to help my students understand what's really going on, and then turned it into an interactive web app that brings together visual and auditory aspects.</p>
             <p>I also included a 'Learn' section which explains the fundamentals of rhythmic musical notation from the ground up in an interactive way.</p>
-            <p class="card__content__text__last">Built with Django and vanilla Javascript inside a Docker container. Styled with vanilla CSS.</p>
+            <p class="card__content__text__last">Built with Python, Django and vanilla Javascript inside a Docker container, deployed to Heroku. Styled with vanilla CSS.</p>
           </div>
         </div>
         <div class="card__buttons">
@@ -121,10 +149,8 @@
           <h3>Peronal website</h3>
           <div class="card__content__text">
             <p>The website you are currently on, made to showcase my work.</p>
-            <p>I faced the challenge of representing and cohesively tying together my two biggest interests, coding and music, on one page. I used CSS styling to create a distinction between the two, and animations to seamlessly bring them together.</p>
-            <p>I also included a section to display my personal notes on the books I’ve read, for which I had to build a program to parse interlinked markdown files to HTML while preserving references across note files. See the <a href="{% url 'library' %}">notes</a> section for more details – each note that is clicked on is read server-side as a markdown file and translated to HTML with every request.</p>
-            <p></p>
-            <p class="card__content__text__last">Built with Django and vanilla Javascript inside a Docker container. Styled with vanilla CSS.</p>
+            <p>I implemented a section to display my personal notes on the books I’ve read, for which I had to build a program to parse interlinked markdown files to HTML while preserving references across note files. See the <a href="{% url 'library' %}">notes</a> section for more details – each note that is clicked on is read server-side as a markdown file and translated to HTML with every request.</p>
+            <p class="card__content__text__last">Built with Python, Django and vanilla Javascript inside a Docker container, deployed to Heroku. Styled with vanilla CSS.</p>
           </div>
         </div>
         <div class="card__buttons">
@@ -149,6 +175,17 @@
 
   <div class="music-tab content-width leave-right hidden">
     <h2>Watch me play</h2>
+
+    <div class="preview-card">
+      <img class="media__photo" src="{% static 'img/2000-trees-a1800.webp' %}" alt="drums on stage" loading="lazy"
+        srcset="{% static 'img/2000-trees-a1800.webp' %} 1800w,
+                {% static 'img/2000-trees-a1200.webp' %} 1200w,
+                {% static 'img/2000-trees-a900.webp' %} 900w,
+                {% static 'img/2000-trees-a700.webp' %} 700w,
+                {% static 'img/2000-trees-a500.webp' %} 500w,
+                {% static 'img/2000-trees-a350.webp' %} 350w"
+        sizes="(max-width: 900px) 100vw - 4.8rem, 900px - 4.8rem">
+    </div>
 
     <div class="preview-card top">
       <div class="yt-embed-container">
@@ -193,20 +230,26 @@
       <div class="tech-container">
         <img class="logo" src="{% static 'svg/logo-django.svg' %}" alt="Django">
         <p>Django</p>
-        <img class="logo" src="{% static 'svg/logo-github.svg' %}" alt="GitHub">
-        <p>GitHub</p>
+        <img class="logo" src="{% static 'svg/logo-aws.svg' %}" alt="Docker">
+        <p>AWS</p>
       </div>
       <div class="tech-container">
         <img class="logo" src="{% static 'svg/logo-javascript.svg' %}" alt="Javascript">
         <p>Javascript</p>
-        <img class="logo" src="{% static 'svg/logo-html.svg' %}" alt="HTML">
-        <p>HTML</p>
-      </div>
-      <div class="tech-container">
         <img class="logo" src="{% static 'svg/logo-docker.svg' %}" alt="Docker">
         <p>Docker</p>
+      </div>
+      <div class="tech-container">
+        <img class="logo" src="{% static 'svg/logo-html.svg' %}" alt="HTML">
+        <p>HTML</p>
         <img class="logo" src="{% static 'svg/logo-css.svg' %}" alt="CSS">
         <p>CSS</p>
+      </div>
+      <div class="tech-container">
+        <img class="logo" src="{% static 'svg/logo-github.svg' %}" alt="GitHub">
+        <p>GitHub</p>
+        <img class="logo" src="{% static 'svg/logo-nginx.svg' %}" alt="CSS">
+        <p>Nginx</p>
       </div>
     </div>
   </div>
@@ -224,15 +267,15 @@
   <div class="code-tab content-width">
     <h2>About me – My coding journey</h2>
     <p>Hi, I’m Juan – I’m a musician and self-taught programmer.</p>
-    <p>I graduated from BIMM London in 2017 with a music degree and since then I’ve spent most of my time teaching drums, guitar and music production to students of all ages and abilities.</p>
-    <p>Having been interested in tech for a long time, I decided to start learning Python during one of the UK lockdowns. I instantly became hooked on the problem solving and engineering challenges it presented.</p>
+    <p>I graduated from BIMM London in 2017 with a music degree and since then I’ve spent most of my time privately teaching drums, guitar and music production to students of all ages and abilities.</p>
+    <p>Having been interested in tech for a long time, I decided to start learning Python in late 2020. I instantly became hooked on the problem solving and engineering challenges it presented.</p>
     <p>I continued to read books to improve my understanding of Python primarily, then proceeded to shift my focus to broader web techonologies so that I’d be able to build working applications. The projects showcased above are the product of the tools and methodologies I’ve learned, combined with ideas of things I wanted to create to fulfil a purpose.</p>
-    <p>Going forward I want to develop my skills in more advanced and lower-level fields such as cryptography, data science and AI.</p>
-    <p>Outside of music and programming, I’m enthusiastic about fitness and reading/learning just about anything.</p>
+    <p>Going forward I want to develop my skills in more advanced fields such as DevOps, data science and AI.</p>
   </div>
   <div class="music-tab content-width leave-right hidden">
     <h2>More media</h2>
     <div class="video-container">
+
       <div class="preview-card vid left">
         <video class="media__video" poster="{% static 'img/1lc-poster.webp' %}" controls playsinline>
           <source src="{% static 'video/1lc-web.mp4' %}" type="video/mp4">
@@ -241,6 +284,7 @@
           <p class="caption">One Last Cigarette, by The Band Camino</p>
         </div>
       </div>
+      
       <div class="preview-card vid">
         <video class="media__video" poster="{% static 'img/slow-dancing-poster.webp' %}" controls playsinline>
           <source src="{% static 'video/slow-dancing-web.mp4' %}" type="video/mp4">
@@ -251,6 +295,16 @@
       </div>
     </div>
 
+    <div class="preview-card">
+      <img class="media__photo" src="{% static 'img/2000-trees-b1800.webp' %}" alt="drums on stage" loading="lazy"
+        srcset="{% static 'img/2000-trees-b1800.webp' %} 1800w,
+                {% static 'img/2000-trees-b1200.webp' %} 1200w,
+                {% static 'img/2000-trees-b900.webp' %} 900w,
+                {% static 'img/2000-trees-b700.webp' %} 700w,
+                {% static 'img/2000-trees-b500.webp' %} 500w,
+                {% static 'img/2000-trees-b350.webp' %} 350w"
+        sizes="(max-width: 900px) 100vw - 4.8rem, 900px - 4.8rem">
+    </div>
     
     <div class="preview-card">
       <img class="media__photo" src="{% static 'img/aw-tall-min1800.webp' %}" alt="drums on stage" loading="lazy"

@@ -79,12 +79,13 @@
 \*---------------------------*/
 
 :root {
-    --col-cream: #f8ece0;
-    --col-cream-dark: #F4E0CD;
+    --col-cream: #fff9f2;
+    --col-cream-dark: #f9f2ea;
     --col-blue: #9CA7AF;
     --col-brown: #573F3A;
     --col-light-shadow: #817165;
-    --col-drop-shadow1: #DEC3B4;
+    --col-drop-shadow1: #f0dace;
+    --col-drop-shadow2: #e3ccbf;
     --col-dark-brown: #40352D;
 
     --col-blue-accent: #6F99A8;
@@ -93,7 +94,7 @@
     --col-navy-dark: #162A3B;
 
     --col-pink: #FFE3DC;
-    --col-pink-dark: #FFCEC2;
+    --col-pink-dark: #fad7ce;
     --col-accent-drab: #A26769;
     --col-gunmetal: #223843;
 
@@ -122,6 +123,7 @@
     --col-bg2: var(--col-pink-dark);
     --col-accent: var(--col-accent-drab);
     --col-text: var(--col-gunmetal);
+    --col-shadow: var(--col-drop-shadow2);
 }
 
 /* end themes */
@@ -273,6 +275,8 @@ header {
     top: 0;
     z-index: 999;
     background-color: rgba(255, 252, 247, 0.93);
+    background-color: rgba(255, 249, 242, 1.93);
+    border-bottom: 1px solid var(--col-navy);
 }
 
 nav {
@@ -554,7 +558,7 @@ a.nav__item {
     width: 15px;
     height: 15px;
     bottom: -13px;
-    background-color: var(--col-drop-shadow1);
+    background-color: var(--col-shadow);
     opacity: 0;
 }
 
@@ -562,7 +566,7 @@ a.nav__item {
     position: absolute;
     width: 95%;
     height: 6px;
-    background-color: var(--col-drop-shadow1);
+    background-color: var(--col-shadow);
     bottom: -7px;
 }
 
@@ -593,7 +597,7 @@ a.nav__item {
     margin: 3.2rem 0;
     width: 100%;
     max-width: var(--vid-max-width);
-    box-shadow: 0 19px 0 -12px var(--col-drop-shadow1);
+    box-shadow: 0 19px 0 -12px var(--col-shadow);
 }
 
 .preview-card.top {
